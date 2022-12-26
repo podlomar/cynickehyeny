@@ -2,9 +2,19 @@
   margin-bottom: 3rem;
   
   &Title {
-    font-weight: 200;
-    font-size: 1.8rem;
+    font-weight: 800;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
     line-height: 1.2;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &Image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
   }
 }

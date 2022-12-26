@@ -8,7 +8,7 @@ const Document = (): JSX.Element => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;400;800&display=swap"
         />
       </Head>
       <body>
