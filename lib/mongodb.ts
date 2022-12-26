@@ -16,7 +16,7 @@ export interface Post {
 export const getAllPosts = async (): Promise<Post[]> => {
   const connection = await clientPromise;
   const db = connection.db('hyenydb');
-  return db.collection<Post>('posts').find().toArray();
+  return db.collection<Post>('posts').find({}, { projection: { _id: false }}).toArray();
 }
 
 export const getOnePost = async (slug: string): Promise<Post | null> => {
