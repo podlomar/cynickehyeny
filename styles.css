@@ -1,0 +1,32 @@
+html {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.banner {
+  background-image: url(./img/banner.svg);
+  background-size: contain;
+  width: 660px;
+  height: 200px;
+  margin-top: 2rem;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.5;
+}
