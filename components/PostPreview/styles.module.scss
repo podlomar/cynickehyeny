@@ -3,13 +3,24 @@
 
 .postPreview {
   margin-bottom: 3rem;
-  
+
   &Head {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 
     @include display-md {
       flex-direction: row;
+    }
+  }
+
+  &Image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+
+    @include display-md {
+      width: 16rem;
     }
   }
 
@@ -37,19 +48,18 @@
     }
   }
 
-  &Image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+  &TimeAuthor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    @include display-md {
-      width: 16rem;
-    }
+  &Author {
+    display: flex;
   }
 
   &Time {
     font-size: small;
     color: $text-light-color;
-    margin: 0;
   }
 }

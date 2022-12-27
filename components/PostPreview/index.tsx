@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './styles.module.scss';
 import { Post } from '../../lib/mongodb';
+import Avatar from '../Avatar';
 
 interface Props {
   post: Post;
@@ -22,10 +23,19 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
               {title}
             </Link>
           </h2>
-          <p className={styles.postPreviewTime}>{time}</p>
+          <div className={styles.postPreviewTimeAuthor}>
+            <div className={styles.postPreviewAuthor}>
+              <Avatar imageUrl="https://www.newtontech.net/wp-content/uploads/2018/06/lenka-weingartova-ctverec.jpg" />
+              <p>Hyena Lenka</p>
+            </div>
+            <p className={styles.postPreviewTime}>{time}</p>
+          </div>
         </div>
       </div>
-      <p>{lead}</p>
+      <p className={styles.postPreviewLead}>{lead}</p>
+      <div className={styles.postPreviewFoot}>
+        
+      </div>
     </div>
   );
 };
