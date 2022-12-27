@@ -13,17 +13,20 @@
     }
   }
 
-  &Title {
-    font-weight: 800;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+  &Info {
     margin: 1rem 0 0 0;
-
+    
     @include display-md {
       margin: 0 0 0 1.5rem;
     }
+  }
 
+  &Title {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0 0 0.5rem 0;
+    
     a {
       text-decoration: none;
       color: $main-text-color;
@@ -37,10 +40,16 @@
   &Image {
     width: 100%;
     height: auto;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 
     @include display-md {
       width: 16rem;
     }
+  }
+
+  &Time {
+    font-size: small;
+    color: $text-light-color;
+    margin: 0;
   }
 }
