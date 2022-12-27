@@ -1,4 +1,5 @@
 node_modules
-posts
 .next
 .env.local
+
+/posts
