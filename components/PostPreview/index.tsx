@@ -11,12 +11,14 @@ interface Props {
 export const PostPreview = ({ slug, title, lead }: Props): JSX.Element => {
   return (
     <div className={styles.postPreview}>
-      <img className={styles.postPreviewImage} src={`postimg/${slug}.jpg`} />
-      <h2 className={styles.postPreviewTitle}>
-        <Link href={`posts/${slug}`}>
-          {title}
-        </Link>
-      </h2>
+      <div className={styles.postPreviewHead}>
+        <img className={styles.postPreviewImage} src={`postimg/${slug}.jpg`} />
+        <h2 className={styles.postPreviewTitle}>
+          <Link href={`posts/${slug}`}>
+            {title}
+          </Link>
+        </h2>
+      </div>
       <p>{lead}</p>
     </div>
   );
