@@ -1,6 +1,6 @@
 import React from 'react';
 import { GetServerSidePropsResult } from 'next';
-import { getAllPosts, Post } from '../lib/mongodb';
+import { getAllPosts, Post } from '../api-client/posts';
 import PostPreview from '../components/PostPreview';
 
 interface Props {
@@ -19,12 +19,7 @@ const HomePage = ({ posts }: Props): JSX.Element => {
     <div className="container">
       <img src="banner.svg" className="banner" />
       <h1>Cynické hyeny</h1>
-      { posts.map((post) => (
-        <PostPreview 
-          key={post.slug}
-          post={post}
-        />
-      ))}
+      {posts.map((post) => <PostPreview key={post.id} post={post} />)}
     </div>
   );
 };
