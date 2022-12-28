@@ -29,6 +29,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
