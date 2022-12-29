@@ -30,6 +30,9 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
         </div>
       </div>
       <p className={styles.postPreviewLead}>{lead}</p>
+      <div className={styles.postPreviewFoot}>
+        <Link className="btnLink" href={`posts/${id}`}>Celý článek</Link>
+      </div>
     </div>
   );
 };
