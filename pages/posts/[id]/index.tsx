@@ -22,7 +22,7 @@ export const getServerSideProps = async (
     };
   }
   
-  const post = await getOnePost(Number(id));
+  const post = await getOnePost(String(id));
   if (post === null) {
     return {
       notFound: true,

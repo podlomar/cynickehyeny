@@ -12,11 +12,10 @@ export interface Author {
 }
 
 export interface Post {
-  id: number;
+  id: string;
   title: string;
   image: string;
   lead: string;
-  draft: boolean;
   created: string;
   author: Author;
   body: string;
@@ -24,24 +23,25 @@ export interface Post {
 
 export const getAllPosts = async (): Promise<Post[]> => {
   const query = (
-    'fields=id,title,image,lead,created,author.display_name,author.avatar&filter[publish][_eq]=true&sort=-created'
+    'fields=id,title,image,lead,date_created,user_created.display_name,user_created.avatar'
+    // 'fields=id,title,image,lead,created,author.display_name,author.avatar&filter[publish][_eq]=true&sort=-created'
   );
   const response = await axios.get(`${CLOUD_URL}/items/posts?${query}`);
   const posts = response.data.data;
   return posts.map((post: any) => ({
     ...post,
     image: `${CLOUD_URL}/assets/${post.image}`,
-    created: dayjs(post.created).format('D. MMMM YYYY H:mm'),
+    created: dayjs(post.date_created).format('D. MMMM YYYY'),
     author: {
-      name: post.author.display_name,
-      avatarUrl: `${CLOUD_URL}/assets/${post.author.avatar}`,
+      name: post.user_created.display_name,
+      avatarUrl: `${CLOUD_URL}/assets/${post.user_created.avatar}`,
     },
   }));
 }
 
-export const getOnePost = async (id: number): Promise<Post | null> => {
+export const getOnePost = async (id: string): Promise<Post | null> => {
   const query = (
-    'fields=title,image,lead,body,created,author.display_name,author.avatar'
+    'fields=title,image,lead,body,date_created,user_created.display_name,user_created.avatar'
   );
   const response = await axios.get(`${CLOUD_URL}/items/posts/${id}?${query}`);
   const post = response.data.data;
@@ -49,10 +49,10 @@ export const getOnePost = async (id: number): Promise<Post | null> => {
   return {
     ...post,
     image: `${CLOUD_URL}/assets/${post.image}`,
-    created: dayjs(post.created).format('D. MMMM YYYY H:mm'),
+    created: dayjs(post.date_created).format('D. MMMM YYYY'),
     author: {
-      name: post.author.display_name,
-      avatarUrl: `${CLOUD_URL}/assets/${post.author.avatar}`,
+      name: post.user_created.display_name,
+      avatarUrl: `${CLOUD_URL}/assets/${post.user_created.avatar}`,
     },
   };
 };
