@@ -18,7 +18,7 @@ const HomePage = ({ posts }: Props): JSX.Element => {
   return (
     <div className="container">
       <img src="banner.svg" className="banner" />
-      <h1>Cynické hyeny</h1>
+      <h1 className="siteTitle">Cynické hyeny</h1>
       {posts.map((post) => <PostPreview key={post.id} post={post} />)}
     </div>
   );

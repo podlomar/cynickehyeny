@@ -1,7 +1,9 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import MarkdownIt from 'markdown-it';
 import { getOnePost, Post } from '../../../api-client/posts';
+import Topbar from '../../../components/Topbar';
 import styles from './styles.module.scss';
+import Link from 'next/link';
 
 const md = MarkdownIt();
 
@@ -40,10 +42,13 @@ const Post = ({ post }: Props) => {
   const { title, lead, body } = post;
   return (
     <div className="container">
-      <h1>{title}</h1>
+      <Topbar />
+      <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
+      <h1 className={styles.postTitle}>{title}</h1>
       <p>{lead}</p>
-      <img className={styles.image} src={post.image} />
-      <div dangerouslySetInnerHTML={{__html: body }} />
+      <img className={styles.postImage} src={post.image} />
+      <div className={styles.postBody} dangerouslySetInnerHTML={{__html: body }} />
+      <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
     </div>
   );
 };

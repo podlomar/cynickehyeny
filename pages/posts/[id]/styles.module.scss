@@ -1,5 +1,18 @@
-.image {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+.post {
+  &Title {
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  &Image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  &Body {
+    margin-bottom: 2rem;
+  }
 }
