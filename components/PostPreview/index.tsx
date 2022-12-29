@@ -9,7 +9,7 @@ interface Props {
 };
 
 export const PostPreview = ({ post }: Props): JSX.Element => {
-  const { id, title, created, image, lead } = post;
+  const { id, title, author, created, image, lead } = post;
   return (
     <div className={styles.postPreview}>
       <div className={styles.postPreviewHead}>
@@ -26,7 +26,7 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
           <div className={styles.postPreviewTimeAuthor}>
             <div className={styles.postPreviewAuthor}>
               <Avatar imageUrl="https://www.newtontech.net/wp-content/uploads/2018/06/lenka-weingartova-ctverec.jpg" />
-              <p>Hyena Lenka</p>
+              <p>{author}</p>
             </div>
             <p className={styles.postPreviewTime}>{created}</p>
           </div>
