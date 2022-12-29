@@ -1,14 +1,30 @@
 import React from 'react';
 
+export type AvatarSize = 'small' | 'normal' | 'large';
+
 interface Props {
+  size: AvatarSize;
   imageUrl: string;
 };
 
-export const Avatar = ({ imageUrl }: Props): JSX.Element => {
+const computeImageSize = (size: AvatarSize): { width: number, height: number } => {
+  if (size === 'small') {
+    return { width: 50, height: 48 };
+  }
+
+  if (size === 'normal') {
+    return { width: 80, height: 69 };
+  }
+
+  return { width: 200, height: 172 };
+};
+
+export const Avatar = ({ size, imageUrl }: Props): JSX.Element => {
+  const { width, height } = computeImageSize(size);
   return (
     <svg
-      width="50"
-      height="48"
+      width={width}
+      height={height}
       viewBox="0 0 2000 1720"
       version="1.1"
       xmlnsXlink="http://www.w3.org/1999/xlink"

@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from './styles.module.scss';
 import { Post } from '../../api-client/posts';
-import Avatar from '../Avatar';
+import styles from './styles.module.scss';
+import { PostAuthor } from '../PostAuthor';
 
 interface Props {
   post: Post;
@@ -24,18 +24,12 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
             </Link>
           </h2>
           <div className={styles.postPreviewTimeAuthor}>
-            <div className={styles.postPreviewAuthor}>
-              <Avatar imageUrl="https://www.newtontech.net/wp-content/uploads/2018/06/lenka-weingartova-ctverec.jpg" />
-              <p>{author}</p>
-            </div>
+            <PostAuthor avatarSize="small" author={author} />
             <p className={styles.postPreviewTime}>{created}</p>
           </div>
         </div>
       </div>
       <p className={styles.postPreviewLead}>{lead}</p>
-      <div className={styles.postPreviewFoot}>
-        
-      </div>
     </div>
   );
 };

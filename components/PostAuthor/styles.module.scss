@@ -1,0 +1,11 @@
+@import "/variables.scss";
+@import "/mixins.scss";
+
+.postAuthor {
+  display: flex;
+  align-items: center;
+}
+
+.authorName {
+  margin-left: 0.5rem;
+}

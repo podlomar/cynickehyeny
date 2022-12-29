@@ -6,6 +6,11 @@ dayjs.locale('cs');
 
 const CLOUD_URL = `https://${process.env.CLOUD_ID}.directus.app`;
 
+export interface Author {
+  name: string;
+  avatarUrl: string;
+}
+
 export interface Post {
   id: number;
   title: string;
@@ -13,13 +18,13 @@ export interface Post {
   lead: string;
   draft: boolean;
   created: string;
-  author: string;
+  author: Author;
   body: string;
 }
 
 export const getAllPosts = async (): Promise<Post[]> => {
   const query = (
-    'fields=id,title,image,lead,created,publish,author.display_name&filter[publish][_eq]=true&sort=-created'
+    'fields=id,title,image,lead,created,author.display_name,author.avatar&filter[publish][_eq]=true&sort=-created'
   );
   const response = await axios.get(`${CLOUD_URL}/items/posts?${query}`);
   const posts = response.data.data;
@@ -27,17 +32,27 @@ export const getAllPosts = async (): Promise<Post[]> => {
     ...post,
     image: `${CLOUD_URL}/assets/${post.image}`,
     created: dayjs(post.created).format('D. MMMM YYYY H:mm'),
-    author: post.author.display_name,
+    author: {
+      name: post.author.display_name,
+      avatarUrl: `${CLOUD_URL}/assets/${post.author.avatar}`,
+    },
   }));
 }
 
 export const getOnePost = async (id: number): Promise<Post | null> => {
-  const response = await axios.get(`${CLOUD_URL}/items/posts/${id}`);
+  const query = (
+    'fields=title,image,lead,body,created,author.display_name,author.avatar'
+  );
+  const response = await axios.get(`${CLOUD_URL}/items/posts/${id}?${query}`);
   const post = response.data.data;
 
   return {
     ...post,
     image: `${CLOUD_URL}/assets/${post.image}`,
     created: dayjs(post.created).format('D. MMMM YYYY H:mm'),
+    author: {
+      name: post.author.display_name,
+      avatarUrl: `${CLOUD_URL}/assets/${post.author.avatar}`,
+    },
   };
-}
+};
