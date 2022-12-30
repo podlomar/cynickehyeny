@@ -1,6 +1,6 @@
 import React from 'react';
 import { GetServerSidePropsResult } from 'next';
-import { getAllPosts, Post } from '../api-client/posts';
+import { fetchAllPosts, Post } from '../api-client/posts';
 import PostPreview from '../components/PostPreview';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const getServerSideProps = async (): Promise<GetServerSidePropsResult<Props>> => {
-  const posts = await getAllPosts();
+  const posts = await fetchAllPosts();
   return {
     props: { posts },
   }

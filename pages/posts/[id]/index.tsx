@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import MarkdownIt from 'markdown-it';
-import { getOnePost, Post } from '../../../api-client/posts';
+import { fetchOnePost, Post } from '../../../api-client/posts';
 import Link from 'next/link';
 import Topbar from '../../../components/Topbar';
 import PostDetail from '../../../components/PostDetail';
@@ -22,7 +22,7 @@ export const getServerSideProps = async (
     };
   }
   
-  const post = await getOnePost(String(id));
+  const post = await fetchOnePost(String(id));
   if (post === null) {
     return {
       notFound: true,
