@@ -1,10 +1,10 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import MarkdownIt from 'markdown-it';
 import { getOnePost, Post } from '../../../api-client/posts';
-import Topbar from '../../../components/Topbar';
-import styles from './styles.module.scss';
 import Link from 'next/link';
-import { PostAuthor } from '../../../components/PostAuthor';
+import Topbar from '../../../components/Topbar';
+import PostDetail from '../../../components/PostDetail';
+import styles from './styles.module.scss';
 
 const md = MarkdownIt();
 
@@ -40,13 +40,13 @@ export const getServerSideProps = async (
 };
 
 const Post = ({ post }: Props) => {
-  const { title, author, lead, body } = post;
+  const { title, author, created, lead, body } = post;
   return (
     <div className="container">
       <Topbar />
       <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
       <h1 className={styles.postTitle}>{title}</h1>
-      <PostAuthor avatarSize="normal" author={author} />
+      <PostDetail avatarSize="normal" author={author} created={created} />
       <p>{lead}</p>
       <img className={styles.postImage} src={post.image} />
       <div className={styles.postBody} dangerouslySetInnerHTML={{__html: body }} />

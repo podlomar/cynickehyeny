@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { Post } from '../../api-client/posts';
+import PostDetail from '../PostDetail';
 import styles from './styles.module.scss';
-import { PostAuthor } from '../PostAuthor';
 
 interface Props {
   post: Post;
@@ -23,10 +23,7 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
               {title}
             </Link>
           </h2>
-          <div className={styles.postPreviewTimeAuthor}>
-            <PostAuthor avatarSize="small" author={author} />
-            <p className={styles.postPreviewTime}>{created}</p>
-          </div>
+          <PostDetail avatarSize="small" author={author} created={created} />
         </div>
       </div>
       <p className={styles.postPreviewLead}>{lead}</p>

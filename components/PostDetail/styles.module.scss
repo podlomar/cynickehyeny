@@ -1,0 +1,12 @@
+@import "/variables.scss";
+@import "/mixins.scss";
+
+.postDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postCreated {
+  color: $text-light-color;
+}
