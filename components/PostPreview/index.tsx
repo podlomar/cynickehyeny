@@ -19,9 +19,7 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
         />
         <div className={styles.postPreviewInfo}>
           <h2 className={styles.postPreviewTitle}>
-            <Link href={`posts/${id}`}>
-              {title}
-            </Link>
+            <Link href={`posts/${id}`}>{title}</Link>
           </h2>
           <PostDetail avatarSize="small" author={author} created={created} />
         </div>
