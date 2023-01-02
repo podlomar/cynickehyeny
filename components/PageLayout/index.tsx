@@ -35,7 +35,7 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
           }}
         />
       </header>
-      <main className="container">
+      <main className={clsx(styles.main, 'container')}>
         {children}
       </main>
       <footer className={styles.footer}>

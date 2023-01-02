@@ -2,10 +2,12 @@
 @import "/mixins.scss";
 
 .header {
-  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .brand {
@@ -23,7 +25,13 @@
   }
 }
 
+.main {
+  margin-bottom: 4rem;
+}
+
 .footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color: #eee;
 
   @include dark {
