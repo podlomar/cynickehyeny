@@ -2,6 +2,7 @@ import React from 'react';
 import { GetServerSidePropsResult } from 'next';
 import { fetchAllPosts, Post } from '../api-client/posts';
 import PostPreview from '../components/PostPreview';
+import PageLayout from '../components/PageLayout';
 
 interface Props {
   posts: Post[],
@@ -16,11 +17,11 @@ export const getServerSideProps = async (): Promise<GetServerSidePropsResult<Pro
 
 const HomePage = ({ posts }: Props): JSX.Element => {
   return (
-    <div className="container">
+    <PageLayout>
       <img src="banner.svg" className="banner" />
       <h1 className="siteTitle">Cynické hyeny</h1>
       {posts.map((post) => <PostPreview key={post.id} post={post} />)}
-    </div>
+    </PageLayout>
   );
 };
 

@@ -7,7 +7,18 @@ html {
 
 body {
   margin: 0;
-  color: $main-text-color;
+}
+
+.page {
+  background-color: $lightmode-bg-color;
+  color: $lightmode-text-color;
+  transition: 1s;
+  
+  &.dark {
+    background-color: $darkmode-bg-color;
+    color: $darkmode-text-color;
+    transition: 1s;
+  }
 }
 
 .container {
@@ -19,7 +30,6 @@ body {
 .banner {
   width: 100%;
   height: auto;
-  margin-top: 2rem;
 }
 
 .siteTitle {

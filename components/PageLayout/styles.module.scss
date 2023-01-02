@@ -1,0 +1,37 @@
+@import "/variables.scss";
+@import "/mixins.scss";
+
+.header {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  &Icon {
+    width: 2.5rem;
+    height: auto;
+  }
+
+  &Name {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.footer {
+  background-color: #eee;
+
+  @include dark {
+    background-color: #111;
+  }
+}
+
+.copyright {
+  font-size: small;
+  text-align: center;
+}

@@ -2,9 +2,9 @@ import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import MarkdownIt from 'markdown-it';
 import { fetchOnePost, Post } from '../../../api-client/posts';
 import Link from 'next/link';
-import Topbar from '../../../components/Topbar';
 import PostDetail from '../../../components/PostDetail';
 import styles from './styles.module.scss';
+import PageLayout from '../../../components/PageLayout';
 
 const md = MarkdownIt();
 
@@ -42,8 +42,7 @@ export const getServerSideProps = async (
 const Post = ({ post }: Props) => {
   const { title, author, created, lead, body } = post;
   return (
-    <div className="container">
-      <Topbar />
+    <PageLayout>
       <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
       <h1 className={styles.postTitle}>{title}</h1>
       <PostDetail avatarSize="normal" author={author} created={created} />
@@ -51,7 +50,7 @@ const Post = ({ post }: Props) => {
       <img className={styles.postImage} src={post.image} />
       <div className={styles.postBody} dangerouslySetInnerHTML={{__html: body }} />
       <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
-    </div>
+    </PageLayout>
   );
 };
 

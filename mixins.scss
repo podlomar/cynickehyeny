@@ -3,3 +3,12 @@
     @content;
   }
 }
+
+@mixin dark {
+  transition: 1s;
+  
+  :global(.page.dark) & {
+    @content;
+    transition: 1s;
+  }
+}
