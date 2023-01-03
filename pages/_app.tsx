@@ -46,7 +46,7 @@ MyApp.getInitialProps = async (context: AppContext): Promise<AppInitialProps & O
   const newContext = await App.getInitialProps(context);
   
   // @ts-ignore
-  const colorScheme = context.ctx.req?.cookies.colorScheme;
+  const colorScheme = context.ctx.req?.cookies?.colorScheme;
   const storedColorScheme = colorScheme === 'light' || colorScheme === 'dark'
     ? colorScheme as ColorScheme
     : null;
