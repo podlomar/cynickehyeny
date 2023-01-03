@@ -6,6 +6,7 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../../lib/theme';
 import styles from './styles.module.scss';
 import "react-toggle/style.css";
+import Link from 'next/link';
 
 interface Props {
   children: React.ReactNode;
@@ -21,10 +22,10 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
   return (
     <div className={clsx('page', colorScheme )}>
       <header className={clsx(styles.header, 'container')}>
-        <div className={styles.brand}>
+        <Link href="/" className={styles.brand}>
           <img className={styles.brandIcon} src="/icon.svg" />
           <span className={styles.brandName}>Cynické Hyeny</span>
-        </div>
+        </Link>
 
         <Toggle
           checked={colorScheme === 'dark'}
