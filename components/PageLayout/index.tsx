@@ -9,10 +9,11 @@ import "react-toggle/style.css";
 import Link from 'next/link';
 
 interface Props {
+  activeNav: 'home' | 'about';
   children: React.ReactNode;
 };
 
-export const PageLayout = ({ children }: Props): JSX.Element => {
+export const PageLayout = ({ activeNav, children }: Props): JSX.Element => {
   const { colorScheme, changeColorScheme } = useTheme();
   
   const handleColorSchemeChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -26,6 +27,11 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
           <img className={styles.brandIcon} src="/icon.svg" />
           <span className={styles.brandName}>Cynické Hyeny</span>
         </Link>
+
+        <nav className={styles.navigation}>
+          <Link className={clsx(activeNav === 'home' ? styles.activeNav : null)} href="/">Články</Link>
+          <Link className={clsx(activeNav === 'about' ? styles.activeNav : null)}href="/o-nas">O nás</Link>
+        </nav>
 
         <Toggle
           checked={colorScheme === 'dark'}

@@ -42,7 +42,7 @@ export const getServerSideProps = async (
 const Post = ({ post }: Props) => {
   const { title, author, created, lead, body } = post;
   return (
-    <PageLayout>
+    <PageLayout activeNav="home">
       <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
       <h1 className={styles.postTitle}>{title}</h1>
       <PostDetail avatarSize="medium" author={author} created={created} />

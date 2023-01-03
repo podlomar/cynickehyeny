@@ -3,7 +3,6 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   padding-top: 1rem;
@@ -12,6 +11,7 @@
 
 .brand {
   display: flex;
+  flex: 1;
   align-items: center;
 
   &:hover {
@@ -26,6 +26,28 @@
   &Name {
     font-size: 1.2rem;
     margin-left: 0.5rem;
+  }
+}
+
+.navigation {
+  margin-right: 2rem;
+
+  a {
+    margin: 0 0.5rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.activeNav {
+  color: $lightmode-text-color;
+  border-bottom: 1px solid $lightmode-text-color;
+
+  @include dark {
+    color: $darkmode-text-color;
+    border-bottom: 1px solid $darkmode-text-color;
   }
 }
 

@@ -17,7 +17,7 @@ export const getStaticProps = async (): Promise<GetStaticPropsResult<Props>> => 
 
 const HomePage = ({ publishers }: Props): JSX.Element => {
   return (
-    <PageLayout>
+    <PageLayout activeNav="about">
       {publishers.map((pub) => <PublisherBio key={pub.id} publisher={pub} />)}
     </PageLayout>
   );
