@@ -26,7 +26,7 @@ const MyApp = ({ Component, pageProps, storedColorScheme }: AppProps & OwnProps)
         : 'light';
       changeColorScheme(browserColorScheme);
     }
-  }, []);
+  }, [storedColorScheme]);
 
   const contextValue = useMemo((): ThemeContextType => ({ 
     colorScheme: colorScheme ?? 'light', changeColorScheme
