@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import MarkdownIt from 'markdown-it';
-import { fetchOnePost, Post } from '../../../api-client/posts';
+import { fetchOnePost, Post } from '../../../api-client';
 import Link from 'next/link';
 import PostDetail from '../../../components/PostDetail';
 import styles from './styles.module.scss';

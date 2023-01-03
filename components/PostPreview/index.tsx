@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Post } from '../../api-client/posts';
+import { Post } from '../../api-client';
 import PostDetail from '../PostDetail';
 import styles from './styles.module.scss';
 

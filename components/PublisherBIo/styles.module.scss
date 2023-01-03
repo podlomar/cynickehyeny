@@ -1,0 +1,16 @@
+@import "/variables.scss";
+@import "/mixins.scss";
+
+.publisherBio {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.publisherAvatar {
+  padding-top: 2rem;
+  margin-right: 2rem;
+}
+
+.publisherBody > h2 {
+  font-weight: 400;
+}

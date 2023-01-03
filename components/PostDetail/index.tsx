@@ -1,5 +1,5 @@
 import React from 'react';
-import { Author } from '../../api-client/posts';
+import { Author } from '../../api-client';
 import { PostAuthor } from '../PostAuthor';
 import { AvatarSize } from '../Avatar';
 import styles from './styles.module.scss';

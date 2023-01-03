@@ -1,6 +1,6 @@
 import React from 'react';
 import { GetServerSidePropsResult } from 'next';
-import { fetchAllPosts, Post } from '../api-client/posts';
+import { fetchAllPosts, Post } from '../api-client';
 import PostPreview from '../components/PostPreview';
 import PageLayout from '../components/PageLayout';
 

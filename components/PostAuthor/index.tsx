@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import React from 'react';
-import { Author } from '../../api-client/posts';
+import { Author } from '../../api-client';
 import { Avatar, AvatarSize } from '../Avatar';
 import styles from './styles.module.scss';
 
@@ -9,11 +10,11 @@ interface Props {
 };
 
 export const PostAuthor = ({ avatarSize, author }: Props): JSX.Element => {
-  const { name, avatarUrl } = author;
+  const { id, name, avatarUrl } = author;
   return (
     <div className={styles.postAuthor}>
       <Avatar size={avatarSize} imageUrl={avatarUrl} />
-      <p className={styles.authorName}>{name}</p>
+      <Link href={`/o-nas#${id}`} className={styles.authorName}>{name}</Link>
     </div>
   );
 };
