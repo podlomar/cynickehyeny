@@ -1,30 +1,17 @@
 import React from 'react';
+import clsx from 'clsx';
+import styles from './styles.module.scss';
 
-export type AvatarSize = 'small' | 'normal' | 'large';
+export type AvatarSize = 'small' | 'medium' | 'large';
 
 interface Props {
   size: AvatarSize;
   imageUrl: string;
 };
 
-const computeImageSize = (size: AvatarSize): { width: number, height: number } => {
-  if (size === 'small') {
-    return { width: 50, height: 48 };
-  }
-
-  if (size === 'normal') {
-    return { width: 80, height: 69 };
-  }
-
-  return { width: 200, height: 172 };
-};
-
 export const Avatar = ({ size, imageUrl }: Props): JSX.Element => {
-  const { width, height } = computeImageSize(size);
   return (
-    <svg
-      width={width}
-      height={height}
+    <svg className={clsx('avatar', styles[size])}
       viewBox="0 0 2000 1720"
       version="1.1"
       xmlnsXlink="http://www.w3.org/1999/xlink"

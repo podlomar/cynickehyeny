@@ -3,14 +3,30 @@
 
 .publisherBio {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 1rem;
+
+  @include display-md {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .publisherAvatar {
+  flex: 0 0 auto;
   padding-top: 2rem;
-  margin-right: 2rem;
+
+  @include display-md {
+    margin-right: 2rem;
+  }
 }
 
 .publisherBody > h2 {
   font-weight: 400;
+  text-align: center;
+
+  @include display-md {
+    text-align: left;
+  }
 }
