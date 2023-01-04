@@ -33,14 +33,16 @@ export const PageLayout = ({ activeNav, children }: Props): JSX.Element => {
           <Link className={clsx(activeNav === 'about' ? styles.activeNav : null)}href="/o-nas">O nás</Link>
         </nav>
 
-        <Toggle
-          checked={colorScheme === 'dark'}
-          onChange={handleColorSchemeChange}
-          icons={{
-            checked: <FaSun />,
-            unchecked: <FaMoon />,
-          }}
-        />
+        <div className={styles.darkModeToggle}>
+          <Toggle
+            checked={colorScheme === 'dark'}
+            onChange={handleColorSchemeChange}
+            icons={{
+              checked: <FaSun />,
+              unchecked: <FaMoon />,
+            }}
+          />
+        </div>
       </header>
       <main className={clsx(styles.main, 'container')}>
         {children}
