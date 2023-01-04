@@ -24,8 +24,8 @@ export const PageLayout = ({ activeNav, children }: Props): JSX.Element => {
     <div className={clsx('page', colorScheme )}>
       <header className={clsx(styles.header, 'container')}>
         <Link href="/" className={styles.brand}>
-          <img className={styles.brandIcon} src="/icon.svg" />
-          <span className={styles.brandName}>Cynické Hyeny</span>
+          <img alt="Cynické hyenyclassName" className={styles.brandIcon} src="/icon.svg" />
+          <span className={styles.brandName}>Cynické hyeny</span>
         </Link>
 
         <nav className={styles.navigation}>

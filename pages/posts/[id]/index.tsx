@@ -47,7 +47,7 @@ const Post = ({ post }: Props) => {
       <h1 className={styles.postTitle}>{title}</h1>
       <PostDetail avatarSize="medium" author={author} created={created} />
       <p>{lead}</p>
-      <img className={styles.postImage} src={post.image} />
+      <img alt={title} className={styles.postImage} src={post.image} />
       <div className={styles.postBody} dangerouslySetInnerHTML={{__html: body }} />
       <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
     </PageLayout>
