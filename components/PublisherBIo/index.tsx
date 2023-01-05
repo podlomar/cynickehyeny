@@ -17,7 +17,7 @@ export const PublisherBio = ({ publisher }: Props): JSX.Element => {
       </div>
       <div className={styles.publisherBody}>
         <h2>{name}</h2>
-        <p>{description}</p>  
+        <div dangerouslySetInnerHTML={{ __html: description }} />
       </div>
     </div>
   );

@@ -1,8 +1,11 @@
 import React from 'react';
 import { GetServerSidePropsResult } from 'next';
+import MarkdownIt from 'markdown-it';
 import { fetchPublishers,  Publisher } from '../api-client';
 import PageLayout from '../components/PageLayout';
 import PublisherBio from '../components/PublisherBIo';
+
+const md = MarkdownIt();
 
 interface Props {
   publishers: Publisher[],
@@ -11,7 +14,12 @@ interface Props {
 export const getServerSideProps = async (): Promise<GetServerSidePropsResult<Props>> => {
   const publishers = await fetchPublishers();
   return {
-    props: { publishers },
+    props: { 
+      publishers: publishers.map((pub) => ({
+        ...pub,
+        description: md.render(pub.description),
+      }))
+    },
   }
 }
 
