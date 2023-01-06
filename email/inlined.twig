@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Cynické hyeny</title>
+</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif; font-size: 16px;">
+  <table class="container" role="presentation" cellspacing="0" cellpadding="0" align="center" border="0" style="display: block; margin: 0 auto; max-width: 660px; padding: 16px;">
+    <tr>
+      <td align="center">
+        <img class="icon" src="https://cynickehyeny.cz/icon-192.png" style="width: 64px; height: 64px; margin-bottom: 16px;">
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <h1 style="font-weight: normal;">{{title}}</h1>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p style="line-height: 1.5;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, tempora unde! Beatae, quisquam! Molestiae, non modi et tempore totam quos!</p>
+      </td>
+    </tr>
+    {% for post in posts %}
+      <tr>
+        <td class="post" style="padding-top: 32px;">
+          <h2 style="font-weight: normal;">{{ post.title }}</h2>
+          <img src="{{ post.image }}" style="width: 100%; height: auto;">
+          <p style="line-height: 1.5;">{{ post.lead }}</p>
+          <a href="{{ post.url }}">Celý článek</a>
+        </td>
+      </tr>
+    {% endfor %}
+    <tr class="footer-row">
+      <td align="center" style="padding-top: 16px;">
+        Newsletter vám přínáší <a href="https://cynickehyeny.cz">Cynické hyeny</a>
+      </td>
+    </tr>
+    <tr class="footer-row">
+      <td align="center" style="padding-top: 16px;">
+        <a href="https://cynickehyeny.cz">Už to nechci dostávat</a>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>
