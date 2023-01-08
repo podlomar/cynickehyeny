@@ -1,0 +1,31 @@
+{
+	"name": "directus-extension-mails",
+	"version": "1.0.0",
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-custom-endpoint"
+	],
+	"type": "module",
+	"directus:extension": {
+		"type": "endpoint",
+		"path": "dist/index.js",
+		"source": "src/index.js",
+		"host": "^9.22.1"
+	},
+	"scripts": {
+		"build-js": "directus-extension build",
+		"build": "rm -rf dist && gulp && npm run build-js",
+		"dev": "directus-extension build -w --no-minify"
+	},
+	"devDependencies": {
+		"@directus/extensions-sdk": "9.22.1",
+		"gulp": "^4.0.2",
+		"gulp-inline-css": "^4.0.0"
+	},
+	"dependencies": {
+		"gulp-copy": "^4.0.1",
+		"mailersend": "^1.4.6",
+		"nunjucks": "^3.2.3"
+	}
+}

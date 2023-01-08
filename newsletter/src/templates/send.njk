@@ -1,0 +1,18 @@
+{% extends "layout.njk" %}
+
+{% block title %}
+  {{ result.status }}
+{% endblock %}
+
+{% block header %}
+  {{ result.status }}
+{% endblock %}
+
+{% block main %}
+  {% if result.ok %}
+    <p>Newsletter was succesfully passed to MailerSend queue!</p>
+  {% else %}
+    <p>There was an error while sending the newsletter:</p>
+    <pre>{{ result.error }}</pre>
+  {% endif %}
+{% endblock %}

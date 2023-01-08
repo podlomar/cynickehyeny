@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f0f4f9;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  background-color: white;
+  max-width: 660px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.buttons {
+  margin-top: 2rem;
+}
+
+.btn-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #6644ff;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.btn-link:hover, .btn-link:focus {
+  background-color: #5742d0;
+}

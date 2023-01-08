@@ -1,0 +1,24 @@
+{% extends "layout.njk" %}
+
+{% block title %}
+  Newsletter controls
+{% endblock %}
+
+{% block header %}
+  Newsletter controls
+{% endblock %}
+
+{% block main %}
+  <p>Preview: <a href="../preview/{{ newsletter.id }}">{{ newsletter.title }}</a></p>
+  {% if newsletter.published %}
+    <p>This newsletter has already been sent!</p>
+    <div class="buttons">
+      <a class="btn-link" href="../send/{{ newsletter.id }}">Send again</a>
+    </div>
+  {% else %}
+    <p>Ready to send to your subscribers</p>
+    <div class="buttons">
+      <a class="btn-link" href="../send/{{ newsletter.id }}">Send newsletter</a>
+    </div>
+  {% endif %}
+{% endblock %}
