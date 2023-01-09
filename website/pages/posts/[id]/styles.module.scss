@@ -1,3 +1,6 @@
+@import "/variables.scss";
+@import "/mixins.scss";
+
 .post {
   &Title {
     font-weight: 400;
@@ -14,5 +17,21 @@
 
   &Body {
     margin-bottom: 2rem;
+  }
+}
+
+.attribution {
+  color: $text-light-color;
+  font-size: small;
+  text-align: right;
+  margin-bottom: 2rem;
+
+  p {
+    margin-top: 0;
+  }
+
+  a, a:hover, a:focus, a:visited, a:active {
+    text-decoration: underline;
+    color: $text-light-color;
   }
 }

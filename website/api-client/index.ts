@@ -17,7 +17,11 @@ export interface Author {
 export interface Post {
   id: string;
   title: string;
-  image: string;
+  image: {
+    url: string;
+    title: string | null;
+    attribution: string | null;
+  },
   lead: string;
   created: string;
   author: Author;
@@ -34,7 +38,11 @@ export interface Publisher {
 const createPostFromApi = (data: any): Post => ({
   id: data.id,
   title: data.title,
-  image: `${BACKOFFICE_URL}/assets/${data.image}`,
+  image: {
+    url: `${BACKOFFICE_URL}/assets/${data.image.id}`,
+    title: data.image.title,
+    attribution: data.image.attribution,
+  },
   lead: data.lead ?? '',
   created: dayjs(data.date_created).fromNow(),
   author: {
@@ -54,7 +62,7 @@ const createPublisherFromApi = (data: any): Publisher => ({
 
 export const fetchAllPosts = async (): Promise<Post[]> => {
   const query = (
-    'fields=id,title,image,lead,date_created,' + 
+    'fields=id,title,image.id,image.title,image.attribution,lead,date_created,' + 
     'user_created.id,user_created.display_name,user_created.avatar&sort=-date_created'
   );
   const response = await axios.get(`${BACKOFFICE_URL}/items/posts?${query}`);
@@ -63,7 +71,7 @@ export const fetchAllPosts = async (): Promise<Post[]> => {
 
 export const fetchOnePost = async (id: string): Promise<Post | null> => {
   const query = (
-    'fields=id,title,image,lead,body,date_created,' +
+    'fields=id,title,image.id,image.title,image.attribution,lead,body,date_created,' +
     'user_created.id,user_created.display_name,user_created.avatar'
   );
   const response = await axios.get(`${BACKOFFICE_URL}/items/posts/${id}?${query}`);

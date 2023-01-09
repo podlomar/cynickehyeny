@@ -34,20 +34,25 @@ export const getServerSideProps = async (
       post: {
         ...post,
         body: md.render(post.body),
+        image: {
+          ...post.image,
+          attribution: md.render(post.image.attribution || ''),
+        }
       }
     },
   };
 };
 
 const Post = ({ post }: Props) => {
-  const { title, author, created, lead, body } = post;
+  const { title, author, created, image, lead, body } = post;
   return (
     <PageLayout activeNav="home">
       <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
       <h1 className={styles.postTitle}>{title}</h1>
       <PostDetail avatarSize="medium" author={author} created={created} />
       <p>{lead}</p>
-      <img alt={title} className={styles.postImage} src={post.image} />
+      <img alt={image.title || title} className={styles.postImage} src={image.url} />
+      <div className={styles.attribution} dangerouslySetInnerHTML={{__html: image.attribution || ''}} />
       <div className={styles.postBody} dangerouslySetInnerHTML={{__html: body }} />
       <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
     </PageLayout>
