@@ -12,6 +12,11 @@ body {
 }
 
 .page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  align-items: stretch;
+
   background-color: $lightmode-bg-color;
   color: $lightmode-text-color;
   transition: 1s;
@@ -52,6 +57,28 @@ a {
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+button {
+  display: inline-block;
+  background-color: $palette-1;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  color: white;
+  transition: 400ms;
+
+  &:hover {
+    background-color: #bb893d;
+  }
+
+  .page.dark & {
+    background-color: #3d2e14;
+  }
+
+  .page.dark &:hover {
+    background-color: #7A5B29;
   }
 }
 

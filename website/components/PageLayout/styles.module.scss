@@ -82,6 +82,58 @@
   }
 }
 
+.subscribe {
+  display: flex;
+  gap: 2rem;
+  
+  &Prompt {
+    flex: 1;
+  }
+
+  &Form {
+    flex: 1;
+    padding-top: 2rem;
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.emailInput {
+  display: block;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+
+  &:focus {
+    outline: none;
+    border-color: #777;
+  }
+
+  @include dark {
+    background-color: #333;  
+    border-color: #444;
+    color: $darkmode-text-color;
+  }
+
+  :global(.page.dark) &:focus {
+    border-color: #777;
+  }
+}
+
+.invalidInput {
+  border-color: red;
+}
+
+.invalidMsg {
+  font-size: small;
+  margin-left: 0.5rem;
+}
+
 .copyright {
   font-size: small;
   text-align: center;

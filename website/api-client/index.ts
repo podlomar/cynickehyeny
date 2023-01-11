@@ -35,6 +35,11 @@ export interface Publisher {
   avatarUrl: string;
 }
 
+export interface Subscription {
+  id: string;
+  email: string;
+}
+
 const createPostFromApi = (data: any): Post => ({
   id: data.id,
   title: data.title,
@@ -82,3 +87,33 @@ export const fetchPublishers = async (): Promise<Publisher[]> => {
   const response = await axios.get(`${BACKOFFICE_URL}/users`);
   return response.data.data.map(createPublisherFromApi);
 };
+
+export const addSubscriber = async (email: string): Promise<Subscription | 'error'> => {
+  const r1 = await axios.get(`${BACKOFFICE_URL}/items/subscribers?filter[email][_eq]=${email}`);
+  
+  if (r1.data.data.length > 0) {
+    return {
+      id: r1.data.data[0].id,
+      email,
+    }
+  }
+  
+  const r2 = await axios.post(`${BACKOFFICE_URL}/items/subscribers`, { email });
+  if (r2.status === 200) {
+    return {
+      id: r2.data.data.id,
+      email: r2.data.data.email,
+    };
+  }
+
+  return 'error';
+}
+
+export const deleteSubscriber = async (id: string): Promise<'success' | 'error'> => {
+  const response = await axios.delete(`${BACKOFFICE_URL}/items/subscribers/${id}`);
+  if (response.status === 204) {
+    return 'success';
+  }
+
+  return 'error';
+}

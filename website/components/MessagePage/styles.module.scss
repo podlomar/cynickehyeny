@@ -1,0 +1,16 @@
+@import "/variables.scss";
+@import "/mixins.scss";
+
+.head {
+  font-weight: 200;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.message {
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
