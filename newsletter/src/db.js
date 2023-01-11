@@ -28,3 +28,5 @@ export const markAsSent = async (context, id) => {
     .where({ id })
     .update({ published: true });
 };
+
+export const getAllSubscribers = async (context) => context.database('subscribers').select();
