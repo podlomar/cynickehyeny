@@ -84,7 +84,16 @@
 
 .subscribe {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  max-width: 20rem;
+  margin: 0 auto 4rem auto;
+  
+
+  @include display-md {
+    max-width: initial;
+    flex-direction: row;
+    gap: 2rem;
+  }
   
   &Prompt {
     flex: 1;
@@ -92,8 +101,11 @@
 
   &Form {
     flex: 1;
-    padding-top: 2rem;
-
+    
+    @include display-md {
+      padding-top: 2rem;
+    }
+    
     label {
       display: block;
       margin-bottom: 1rem;
