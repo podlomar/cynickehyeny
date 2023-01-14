@@ -1,7 +1,14 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { GetServerSidePropsResult } from 'next';
 import MessagePage from '../../components/MessagePage';
 import Link from 'next/link';
+
+export const getServerSideProps = async (): Promise<GetServerSidePropsResult<{}>> => {
+  return {
+    props: {}
+  };
+};
 
 const SubscribedPage = (): JSX.Element => {
   const router = useRouter();
