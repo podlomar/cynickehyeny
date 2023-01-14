@@ -13,11 +13,13 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
   return (
     <div className={styles.postPreview}>
       <div className={styles.postPreviewHead}>
-        <img 
-          alt={image.title || title}
-          className={styles.postPreviewImage}
-          src={image.url}
-        />
+        <Link href={`posts/${id}`}>
+          <img
+            alt={image.title || title}
+            className={styles.postPreviewImage}
+            src={image.url}
+          />
+        </Link>
         <div className={styles.postPreviewInfo}>
           <h2 className={styles.postPreviewTitle}>
             <Link href={`posts/${id}`}>{title}</Link>

@@ -6,6 +6,12 @@
   align-items: center;
 }
 
-.authorName {
+a.authorName {
   margin-left: 0.5rem;
+
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

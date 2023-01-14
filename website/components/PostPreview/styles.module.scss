@@ -40,7 +40,12 @@
 
     a {
       color: $lightmode-text-color;
+      text-decoration: none;
 
+      &:hover {
+        text-decoration: underline;
+      }
+      
       @include dark {
         color: $darkmode-text-color;
       }

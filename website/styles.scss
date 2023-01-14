@@ -52,7 +52,6 @@ p {
 }
 
 a {
-  text-decoration: none;
   color: $link-color;
 
   &:hover {
@@ -88,6 +87,7 @@ button {
   border-radius: 5px;
   padding: 0.5rem 1rem;
   transition: 400ms;
+  text-decoration: none;
 
   &:hover {
     text-decoration: none;

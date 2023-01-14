@@ -51,13 +51,13 @@ export const PageLayout = ({ activeNav, subscribe, children }: Props): JSX.Eleme
       <header>
         <div className={clsx(styles.header, 'container')}>
           <Link href="/" className={styles.brand}>
-            <img alt="Cynické hyenyclassName" className={styles.brandIcon} src="/icon.svg" />
+            <img alt="Cynické hyeny" className={styles.brandIcon} src="/icon.svg" />
             <span className={styles.brandName}>Cynické hyeny</span>
           </Link>
 
           <nav className={styles.navigation}>
             <Link className={clsx(activeNav === 'home' ? styles.activeNav : null)} href="/">Články</Link>
-            <Link className={clsx(activeNav === 'about' ? styles.activeNav : null)}href="/o-nas">O nás</Link>
+            <Link className={clsx(activeNav === 'about' ? styles.activeNav : null)} href="/o-nas">O nás</Link>
           </nav>
 
           <div className={styles.darkModeToggle}>
