@@ -24,7 +24,7 @@ export interface Post {
     url: string;
     title: string | null;
     attribution: string | null;
-  },
+  } | null,
   lead: string;
   created: string;
   author: Author;
@@ -46,7 +46,7 @@ export interface Subscription {
 const createPostFromApi = (data: any): Post => ({
   id: data.id,
   title: data.title,
-  image: {
+  image: data.image === null ? null : {
     url: `${BACKOFFICE_URL}/assets/${data.image.id}`,
     title: data.image.title,
     attribution: md.render(data.image.attribution ?? ''),

@@ -39,8 +39,14 @@ const Post = ({ post }: Props) => {
       <h1 className={styles.postTitle}>{title}</h1>
       <PostDetail avatarSize="medium" author={author} created={created} />
       <div dangerouslySetInnerHTML={{__html: lead }}></div>
-      <img alt={image.title || title} className={styles.postImage} src={image.url} />
-      <div className={styles.attribution} dangerouslySetInnerHTML={{__html: image.attribution || ''}} />
+      { image === null ? (
+        <img alt="Bez obrázku" className={styles.postImage} src="/noimage.jpg" />
+      ) : (
+        <img alt={image.title || title} className={styles.postImage} src={image.url} />
+      )}
+      { image === null ? null : (
+        <div className={styles.attribution} dangerouslySetInnerHTML={{__html: image.attribution || ''}} />
+      )}
       <div className={styles.postBody} dangerouslySetInnerHTML={{__html: body }} />
       <Link href="/">&lt;&lt; zpět na hlavní stránku</Link>
     </PageLayout>
