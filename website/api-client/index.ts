@@ -46,7 +46,7 @@ export interface Subscription {
 const createPostFromApi = (data: any): Post => ({
   id: data.id,
   title: data.title,
-  image: data.image === null ? null : {
+  image: data.image === null || data.image.width !== 1000 || data.image.height !== 500 ? null : {
     url: `${BACKOFFICE_URL}/assets/${data.image.id}`,
     title: data.image.title,
     attribution: md.render(data.image.attribution ?? ''),
@@ -70,7 +70,7 @@ const createPublisherFromApi = (data: any): Publisher => ({
 
 export const fetchAllPosts = async (): Promise<Post[]> => {
   const query = (
-    'fields=id,title,image.id,image.title,image.attribution,lead,date_published,' + 
+    'fields=id,title,image.id,image.title,image.attribution,image.width,image.height,lead,date_published,' + 
     'user_created.id,user_created.display_name,user_created.avatar&sort=-date_published'
   );
   const response = await axios.get(`${BACKOFFICE_URL}/items/posts?${query}`);
@@ -79,7 +79,7 @@ export const fetchAllPosts = async (): Promise<Post[]> => {
 
 export const fetchOnePost = async (id: string): Promise<Post | null> => {
   const query = (
-    'fields=id,title,image.id,image.title,image.attribution,lead,body,date_published,' +
+    'fields=id,title,image.id,image.title,image.attribution,image.width,image.height,lead,body,date_published,' +
     'user_created.id,user_created.display_name,user_created.avatar'
   );
   const response = await axios.get(`${BACKOFFICE_URL}/items/posts/${id}?${query}`);
