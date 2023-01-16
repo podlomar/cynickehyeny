@@ -27,7 +27,7 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
           <PostDetail avatarSize="small" author={author} created={created} />
         </div>
       </div>
-      <p className={styles.postPreviewLead}>{lead}</p>
+      <div className={styles.postPreviewLead} dangerouslySetInnerHTML={{ __html: lead}} />
       <div className={styles.postPreviewFoot}>
         <Link className="btnLink" href={`posts/${id}`}>Celý článek</Link>
       </div>

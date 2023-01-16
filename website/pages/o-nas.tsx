@@ -14,18 +14,13 @@ interface Props {
 export const getServerSideProps = async (): Promise<GetServerSidePropsResult<Props>> => {
   const publishers = await fetchPublishers();
   return {
-    props: { 
-      publishers: publishers.map((pub) => ({
-        ...pub,
-        description: md.render(pub.description),
-      }))
-    },
+    props: { publishers },
   }
 }
 
 const HomePage = ({ publishers }: Props): JSX.Element => {
   return (
-    <PageLayout activeNav="about">
+    <PageLayout title="O nás" activeNav="about">
       <h1>O nás</h1>
       <p>Jsme skupinka přátel, kterou jednou naše kamarádka ve víru vášnivé diskuse nazvala cynickými hyenami. Důvod prohlášení už zmizel v hlubinách dějin, ale pojmenování nám zůstalo.</p>
 

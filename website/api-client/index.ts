@@ -1,7 +1,10 @@
 import axios from 'axios';
+import MarkdownIt from 'markdown-it';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/cs';
+
+const md = MarkdownIt();
 
 const BACKOFFICE_URL = process.env.BACKOFFICE_URL;
 
@@ -46,22 +49,22 @@ const createPostFromApi = (data: any): Post => ({
   image: {
     url: `${BACKOFFICE_URL}/assets/${data.image.id}`,
     title: data.image.title,
-    attribution: data.image.attribution,
+    attribution: md.render(data.image.attribution ?? ''),
   },
-  lead: data.lead ?? '',
+  lead: md.render(data.lead ?? ''),
   created: dayjs(data.date_created).fromNow(),
   author: {
     id: data.user_created.id,
     name: data.user_created.display_name,
     avatarUrl: `${BACKOFFICE_URL}/assets/${data.user_created.avatar}`,
   },
-  body: data.body ?? '',
+  body: md.render(data.body ?? ''),
 });
 
 const createPublisherFromApi = (data: any): Publisher => ({
   id: data.id,
   name: data.display_name ?? 'Nastav si jméno, vole!',
-  description: data.description ?? 'Nastav si popisek, vole!',
+  description: md.render(data.description ?? ''),
   avatarUrl: `${BACKOFFICE_URL}/assets/${data.avatar}`,
 });
 

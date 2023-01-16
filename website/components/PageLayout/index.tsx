@@ -1,16 +1,18 @@
 import React, { useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head';
 import isEmail from 'validator/lib/isEmail';
 import Toggle from 'react-toggle';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../../lib/theme';
 import styles from './styles.module.scss';
 import "react-toggle/style.css";
-import { Router, useRouter } from 'next/router';
 
 interface Props {
+  title?: string;
   activeNav?: 'home' | 'about';
   subscribe?: boolean,
   children: React.ReactNode;
@@ -21,7 +23,7 @@ interface Email {
   valid: boolean;
 }
 
-export const PageLayout = ({ activeNav, subscribe, children }: Props): JSX.Element => {
+export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JSX.Element => {
   const { colorScheme, changeColorScheme } = useTheme();
   const router = useRouter();
   const [ email, setEmail ] = useState<Email>({ value: '', valid: true });
@@ -48,6 +50,9 @@ export const PageLayout = ({ activeNav, subscribe, children }: Props): JSX.Eleme
 
   return (
     <div className={clsx('page', colorScheme )}>
+      <Head>
+        <title>{title === undefined ? 'Cynické hyeny' : `${title} | Cynické hyeny`}</title>
+      </Head>
       <header>
         <div className={clsx(styles.header, 'container')}>
           <Link href="/" className={styles.brand}>
