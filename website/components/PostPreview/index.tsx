@@ -9,7 +9,7 @@ interface Props {
 };
 
 export const PostPreview = ({ post }: Props): JSX.Element => {
-  const { id, title, author, created, image, lead } = post;
+  const { id, title, author, published, image, lead } = post;
   return (
     <div className={styles.postPreview}>
       <div className={styles.postPreviewHead}>
@@ -32,7 +32,7 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
           <h2 className={styles.postPreviewTitle}>
             <Link href={`posts/${id}`}>{title}</Link>
           </h2>
-          <PostDetail avatarSize="small" author={author} created={created} />
+          <PostDetail avatarSize="small" author={author} published={published} />
         </div>
       </div>
       <div className={styles.postPreviewLead} dangerouslySetInnerHTML={{ __html: lead}} />

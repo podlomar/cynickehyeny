@@ -7,14 +7,14 @@ import styles from './styles.module.scss';
 interface Props {
   avatarSize: AvatarSize;
   author: Author;
-  created: string;
+  published: string;
 };
 
-export const PostDetail = ({ avatarSize, author, created }: Props): JSX.Element => {
+export const PostDetail = ({ avatarSize, author, published }: Props): JSX.Element => {
   return (
     <div className={styles.postDetail}>
       <PostAuthor avatarSize={avatarSize} author={author} />
-      <p className={styles.postCreated}>{created}</p>
+      <p className={styles.postPublished}>{published}</p>
     </div>
   );
 };
