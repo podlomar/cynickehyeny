@@ -10,15 +10,26 @@
 
 {% block main %}
   <p>Preview: <a href="../preview/{{ newsletter.id }}">{{ newsletter.title }}</a></p>
+  
   {% if newsletter.published %}
     <p>This newsletter has already been sent!</p>
-    <div class="buttons">
-      <a class="btn-link" href="../send/{{ newsletter.id }}">Send again</a>
-    </div>
   {% else %}
     <p>Ready to send to your subscribers</p>
-    <div class="buttons">
-      <a class="btn-link" href="../send/{{ newsletter.id }}">Send newsletter</a>
-    </div>
   {% endif %}
+
+  <div class="buttons">
+    <a class="btn-link" href="../send/{{ newsletter.id }}">
+      {% if newsletter.published %}
+        Send again
+      {% else %}
+        Send
+      {% endif %}
+    </a>
+    
+    {% if newsletter.tester %}
+      <a class="btn-link" href="../send/{{ newsletter.id }}?test=true">Test send</a>
+    {% else %}
+      There is no tester assigned
+    {% endif %}
+  </div>
 {% endblock %}

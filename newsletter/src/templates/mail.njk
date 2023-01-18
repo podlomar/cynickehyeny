@@ -28,14 +28,14 @@
       height: auto;
     }
 
+    td {
+      line-height: 1.5;
+    }
+    
     .icon {
       width: 64px;
       height: 64px;
       margin-bottom: 16px;
-    }
-
-    p {
-      line-height: 1.5;
     }
 
     .post {
@@ -44,6 +44,11 @@
 
     .footer-row td {
       padding-top: 16px;
+    }
+
+    .buymeacoffee {
+      width: 240px;
+      height: 90px;
     }
   </style>
 </head>
@@ -70,14 +75,27 @@
         <td class="post">
           <h2>{{ post.title }}</h2>
           <img src="{{ post.image }}" />
-          <p>{{ post.lead }}</p>
-          <a href="{{ post.url }}">Celý článek</a>
+          {{ post.lead | safe }}
+          {{ post.body | safe }}
         </td>
       </tr>
     {% endfor %}
     <tr class="footer-row">
       <td align="center">
         Newsletter vám přínáší <a href="https://cynickehyeny.cz">Cynické hyeny</a>
+      </td>
+    </tr>
+    <tr class="footer-row">
+      <td align="center">
+        Líbí se vám naše články?<br />
+        <a href="https://www.buymeacoffee.com/cynickehyeny.cz">Kupte nám kafe!</a>
+      </td>
+    </tr>
+    <tr class="footer-row">
+      <td align="center">
+        <a href="https://www.buymeacoffee.com/cynickehyeny.cz">
+          <img class="buymeacoffee" src="https://cynickehyeny.cz/buymeacoffee.png" />
+        </a>
       </td>
     </tr>
     <tr class="footer-row">

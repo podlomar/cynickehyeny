@@ -1,4 +1,4 @@
-import { findNewsletter, markAsSent, buildEmailData, getAllSubscribers } from './db';
+import { findNewsletter, markAsSent, buildEmailData, getAllSubscribers, getSubscriber } from './db';
 import { buildEmail } from './email';
 import MailerSend, { Recipient, EmailParams } from 'mailersend';
 import { render } from './render';
@@ -9,8 +9,17 @@ const mailersend = new MailerSend({
 
 export default (context) => async (req, res) => {
 	const { id } = req.params;
+	const { test } = req.query;
+
 	const newsletter = await findNewsletter(context, id);
-	const subscribers = await getAllSubscribers(context);
+	
+	let subscribers = null;
+	if (test === 'true') {
+		subscribers = await getSubscriber(context, newsletter.tester);
+	} else {
+		subscribers = await getAllSubscribers(context);
+	}
+
 	const emailData = await buildEmailData(context, newsletter);
 	const html = buildEmail(emailData);
 
@@ -30,7 +39,7 @@ export default (context) => async (req, res) => {
   	.setFromName("Cynické hyeny")
   	.setRecipients(recipients)
 		.setVariables(variables)
-  	.setSubject(emailData.title)
+		.setSubject(test === 'true' ? `TEST!! ${emailData.title}` : emailData.title)
     .setHtml(html);
 
 	const response = await mailersend.send(emailParams);
