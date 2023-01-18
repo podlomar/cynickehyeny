@@ -88,7 +88,7 @@
   display: flex;
   flex-direction: column;
   max-width: 20rem;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 0 auto;
   
 
   @include display-md {
@@ -146,6 +146,22 @@
 .invalidMsg {
   font-size: small;
   margin-left: 0.5rem;
+}
+
+.donate {
+  width: 240px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.buymeacoffee {
+  display: block;
+  width: 240px;
+  height: 90px;
+  background-image: url(./img/buymeacoffee.svg);
+  background-size: contain;
+  border-radius: 5px;
 }
 
 .copyright {

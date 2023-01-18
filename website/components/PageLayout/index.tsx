@@ -10,6 +10,7 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../../lib/theme';
 import styles from './styles.module.scss';
 import "react-toggle/style.css";
+import BuyMeACoffee from '../BuyMeACoffee';
 
 interface Props {
   title?: string;
@@ -109,8 +110,18 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
               </form>
             </div>
           )}
+  
+          <div className={styles.donate}>
+            <p>
+              Líbí se vám naše články?
+              <br />
+              <a href="https://www.buymeacoffee.com/cynickehyeny.cz">Kupte nám kafe!</a>
+            </p>
+            <a href="https://www.buymeacoffee.com/cynickehyeny.cz" className={styles.buymeacoffee} />
+          </div>
+          
           <p className={styles.copyright}>
-            © 2023 cynickehyeny.cz, všechna práva vyhrazena
+            © 2023 cynickehyeny.cz všechna práva vyhrazena
           </p>
         </div>
       </footer>
@@ -119,3 +130,4 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
 };
 
 export default PageLayout;
+
