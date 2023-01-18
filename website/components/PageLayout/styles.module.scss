@@ -68,6 +68,11 @@
 
 .darkModeToggle {
   order: 3;
+  color: white;
+
+  :global(.react-toggle-track-check), :global(.react-toggle-track-x) {
+    top: -5px;
+  }
 }
 
 .main {
