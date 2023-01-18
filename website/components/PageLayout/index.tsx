@@ -10,7 +10,6 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../../lib/theme';
 import styles from './styles.module.scss';
 import "react-toggle/style.css";
-import BuyMeACoffee from '../BuyMeACoffee';
 
 interface Props {
   title?: string;
