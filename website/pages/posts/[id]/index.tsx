@@ -37,7 +37,9 @@ const Post = ({ post }: Props) => {
   return (
     <PageLayout title={title} activeNav="home">
       <Head>
+        <meta property="og:site_name" content="Cynické hyeny" />
         <meta property="og:type" content="article" />
+        <meta property="og:locale" content="cs_CZ" />
         <meta property="og:url" content={`https://cynickehyeny.cz/posts/${id}`} />
         <meta property="og:title" content={`${title} | Cynické hyeny`} />
         <meta property="og:description" content={leadStripped} />  
