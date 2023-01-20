@@ -20,7 +20,7 @@ const Document = (): JSX.Element => {
         <meta name="robots" content="index, follow" />
         <meta 
           name="description"
-          content="Svérázné zprávy z domova i obskurních zemí, na které se v tuzemských médiích zapomnělo. Komentáře s jasným názorem a dávkou sarkasmu, jež vás postaví na nohy lépe než ranní kafe."
+          content="Svérázné zprávy z domova i obskurních zemí, na které se v tuzemských médiích zapomnělo. Shrnutí a komentáře s jasným názorem a dávkou sarkasmu, jež vás postaví na nohy lépe než ranní kafe."
         />
 
         <meta name="keywords" content="Cynické hyeny, ironické zprávy, sarkastické komentáře, blog, newsletter" />

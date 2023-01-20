@@ -8,8 +8,9 @@ import isEmail from 'validator/lib/isEmail';
 import Toggle from 'react-toggle';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../../lib/theme';
-import styles from './styles.module.scss';
 import "react-toggle/style.css";
+import BuyMeACoffee from '../BuyMeACoffee';
+import styles from './styles.module.scss';
 
 interface Props {
   title?: string;
@@ -116,7 +117,7 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
               <br />
               <a href="https://www.buymeacoffee.com/cynickehyeny.cz">Kupte nám kafe!</a>
             </p>
-            <a href="https://www.buymeacoffee.com/cynickehyeny.cz" className={styles.buymeacoffee} />
+            <BuyMeACoffee />
           </div>
           
           <p className={styles.copyright}>
