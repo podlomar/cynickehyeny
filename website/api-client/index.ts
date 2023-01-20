@@ -1,5 +1,6 @@
 import axios from 'axios';
 import MarkdownIt from 'markdown-it';
+import removeMd from 'remove-markdown';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/cs';
@@ -26,6 +27,7 @@ export interface Post {
     attribution: string | null;
   } | null,
   lead: string;
+  leadStripped: string;
   published: string;
   author: Author;
   body: string;
@@ -52,6 +54,7 @@ const createPostFromApi = (data: any): Post => ({
     attribution: md.render(data.image.attribution ?? ''),
   },
   lead: md.render(data.lead ?? ''),
+  leadStripped: removeMd(data.lead ?? ''),
   published: dayjs(data.date_published).fromNow(),
   author: {
     id: data.user_created.id,

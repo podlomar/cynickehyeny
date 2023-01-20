@@ -16,6 +16,14 @@ const Document = (): JSX.Element => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;400;800&display=swap"
         />
+
+        <meta name="robots" content="index, follow" />
+        <meta 
+          name="description"
+          content="Svérázné zprávy z domova i obskurních zemí, na které se v tuzemských médiích zapomnělo. Komentáře s jasným názorem a dávkou sarkasmu, jež vás postaví na nohy lépe než ranní kafe."
+        />
+
+        <meta name="keywords" content="Cynické hyeny, ironické zprávy, sarkastické komentáře, blog, newsletter" />
       </Head>
       <body>
         <Main />
