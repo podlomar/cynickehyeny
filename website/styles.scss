@@ -59,6 +59,10 @@ a {
   }
 }
 
+sup, sub {
+  font-size: 0.7rem;
+}
+
 button {
   display: inline-block;
   background-color: $palette-1;

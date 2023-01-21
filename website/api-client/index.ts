@@ -1,11 +1,26 @@
 import axios from 'axios';
 import MarkdownIt from 'markdown-it';
+import Directive from 'markdown-it-directive';
+import StateInline from 'markdown-it/lib/rules_inline/state_inline';
 import removeMd from 'remove-markdown';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/cs';
 
-const md = MarkdownIt();
+const md = MarkdownIt()
+  .use(Directive)
+  .use((md) => {
+    // @ts-ignore
+    md.inlineDirectives['sup'] = (state: StateInline, content: string) => {
+      const token = state.push('html_inline', '', 0);
+      token.content = `<sup>${content}</sup>`;
+    };
+    // @ts-ignore
+    md.inlineDirectives['sub'] = (state: StateInline, content: string) => {
+      const token = state.push('html_inline', '', 0);
+      token.content = `<sub>${content}</sub>`;
+    };
+  });
 
 const BACKOFFICE_URL = process.env.BACKOFFICE_URL;
 
