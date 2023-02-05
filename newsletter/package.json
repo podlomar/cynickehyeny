@@ -25,7 +25,8 @@
 	},
 	"dependencies": {
 		"gulp-copy": "^4.0.1",
-		"mailersend": "^1.4.6",
+		"mailersend": "^2.0.2",
+		"markdown-it": "^13.0.1",
 		"nunjucks": "^3.2.3"
 	}
 }

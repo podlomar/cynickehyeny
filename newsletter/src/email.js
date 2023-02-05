@@ -1,3 +1,5 @@
 import { render } from './render';
 
-export const buildEmail = (templateData) => render('mail.njk', templateData);
+export const buildEmail = (emailData, recipientId) => render(
+  'mail.njk', { ...emailData, recipientId }
+);

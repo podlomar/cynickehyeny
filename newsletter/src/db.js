@@ -13,12 +13,12 @@ export const findNewsletter = async (context, id) => {
 export const buildEmailData = async (context, newsletter) => {
   const posts = await context.database('posts')
     .where({ newsletter: newsletter.id })
-    .orderBy('date_published', 'asc')
+    .orderBy('order_in_newsletter')
     .select();
   
   return {
     title: newsletter.title,
-    intro: newsletter.intro,
+    intro: md.render(newsletter.intro),
     posts: posts.map(post => ({
       url: `https://cynickehyeny.cz/posts/${post.id}`,
       title: post.title,
@@ -37,4 +37,7 @@ export const markAsSent = async (context, id) => {
 
 export const getAllSubscribers = async (context) => context.database('subscribers').select();
 
-export const getSubscriber = async (context, id) => context.database('subscribers').where({ id }).select();
+export const getTestSubscribers = async (context, id) => context
+  .database('newsletters_subscribers')
+  .innerJoin('subscribers', 'newsletters_subscribers.subscribers_id', 'subscribers.id')
+  .where('newsletters_id', id);

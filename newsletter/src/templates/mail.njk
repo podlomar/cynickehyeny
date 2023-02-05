@@ -67,7 +67,7 @@
     </tr>
     <tr>
       <td>
-        <p>{{ intro }}</p>
+        <p>{{ intro | safe }}</p>
       </td>
     </tr>
     {% for post in posts %}
@@ -100,7 +100,7 @@
     </tr>
     <tr class="footer-row">
       <td align="center">
-        <a href="https://cynickehyeny.cz/unsubscribe/{$recipientId}">Už to nechci dostávat</a>
+        <a href="https://cynickehyeny.cz/unsubscribe/{{$recipientId}}">Už to nechci dostávat</a>
       </td>
     </tr>
 
