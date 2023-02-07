@@ -86,13 +86,35 @@ const createPublisherFromApi = (data: any): Publisher => ({
   avatarUrl: `${BACKOFFICE_URL}/assets/${data.avatar}`,
 });
 
-export const fetchAllPosts = async (): Promise<Post[]> => {
-  const query = (
-    'fields=id,title,image.id,image.title,image.attribution,image.width,image.height,lead,date_published,' + 
-    'user_created.id,user_created.display_name,user_created.avatar&sort=-date_published'
-  );
+export interface PostsSlice {
+  posts: Post[],
+  nextOffset: number | null,
+  prevOffset: number | null,
+}
+
+export const fetchPosts = async (offset: number = 0): Promise<PostsSlice> => {
+  const limit = 12;
+  offset = Number.isNaN(offset) || offset > Number.MAX_SAFE_INTEGER
+    ? 0
+    : Math.floor(offset / limit) * limit;
+  
+  const query = [
+    (
+      'fields=id,title,image.id,image.title,image.attribution,image.width,image.height,lead,date_published,' + 
+      'user_created.id,user_created.display_name,user_created.avatar&sort=-date_published'
+    ),
+    `offset=${offset.toFixed()}`,
+    `limit=${limit + 1}`,
+  ].join('&');
+
   const response = await axios.get(`${BACKOFFICE_URL}/items/posts?${query}`);
-  return response.data.data.map(createPostFromApi);
+  const posts = response.data.data;
+
+  return {
+    posts: posts.slice(0, limit).map(createPostFromApi),
+    nextOffset: posts.length > limit ? offset + limit : null,
+    prevOffset: offset > 0 ? offset - limit : null,
+  };
 }
 
 export const fetchOnePost = async (id: string): Promise<Post | null> => {
