@@ -20,16 +20,18 @@
   <div class="buttons">
     <a class="btn-link" href="../send/{{ newsletter.id }}">
       {% if newsletter.published %}
-        Send again
+        Send again to {{subsCount}} subs
       {% else %}
-        Send
+        Send to {{subsCount}} subs
       {% endif %}
     </a>
     
-    {% if newsletter.tester %}
-      <a class="btn-link" href="../send/{{ newsletter.id }}?test=true">Test send</a>
+    {% if testSubsCount > 0 %}
+      <a class="btn-link" href="../send/{{ newsletter.id }}?test=true">
+        Test send to {{testSubsCount}} testers
+      </a>
     {% else %}
-      There is no tester assigned
+      There are no testers assigned
     {% endif %}
   </div>
 {% endblock %}

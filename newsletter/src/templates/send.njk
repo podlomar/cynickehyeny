@@ -12,7 +12,7 @@
   {% if result.ok %}
     <p>Newsletter was succesfully passed to MailerSend queue!</p>
   {% else %}
-    <p>There was an error while sending the newsletter:</p>
+    <p>There was a <strong>terrible error</strong> while trying to send the newsletter. Below are the details you should send to your mighty programmer along with many gifts.</p>
     <pre>{{ result.error }}</pre>
   {% endif %}
 {% endblock %}

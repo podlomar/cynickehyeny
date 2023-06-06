@@ -11,44 +11,58 @@ export default (context) => async (req, res) => {
 	const { id } = req.params;
 	const { test } = req.query;
 
-	const newsletter = await findNewsletter(context, id);
-	
-	let subscribers = null;
-	if (test === 'true') {
-		subscribers = await getTestSubscribers(context, id);
-	} else {
-		subscribers = await getAllSubscribers(context);
-	}
+  try {
+    const newsletter = await findNewsletter(context, id);
+    
+    let subscribers = null;
+    if (test === 'true') {
+      subscribers = await getTestSubscribers(context, id);
+    } else {
+      subscribers = await getAllSubscribers(context);
+    }
 
-	const emailData = await buildEmailData(context, newsletter);
+    if (subscribers.length === 0) {
+      res.send(render('send.njk', { 
+        result: {
+          ok: false,
+          status: 'Error',
+          error: 'There are no subscribers to send to',
+        },
+      }));
   
-  const sentFrom = new Sender("redakce@cynickehyeny.cz", "Cynické hyeny");
+      return;
+    }
 
-  const bulkEmails = subscribers.map((sub) => new EmailParams()
-  	.setFrom(sentFrom)
-    .setTo([new Recipient(sub.email)])
-	 	.setSubject(test === 'true' ? `TEST!! ${emailData.title}` : emailData.title)
-    .setHtml(buildEmail(emailData, sub.id))
-  );
+    const emailData = await buildEmailData(context, newsletter);
+    
+    const sentFrom = new Sender("redakce@cynickehyeny.cz", "Cynické hyeny");
 
-  const response = await mailerSend.email.sendBulk(bulkEmails);  
-  if (response.statusCode === 202) {
-		if (test !== 'true') {
-	 		await markAsSent(context, id);
-		}
-		
-    res.send(render('send.njk', { 
-      result: {
-        ok: true,
-        status: 'Success',
-      },
-    }));
-  } else {
+    const bulkEmails = subscribers.map((sub) => new EmailParams()
+      .setFrom(sentFrom)
+      .setTo([new Recipient(sub.email)])
+      .setSubject(test === 'true' ? `TEST!! ${emailData.title}` : emailData.title)
+      .setHtml(buildEmail(emailData, sub.id))
+    );
+
+    const response = await mailerSend.email.sendBulk(bulkEmails);  
+    if (response.statusCode === 202) {
+      if (test !== 'true') {
+        await markAsSent(context, id);
+      }
+      
+      res.send(render('send.njk', { 
+        result: {
+          ok: true,
+          status: 'Success',
+        },
+      }));
+    }
+  } catch (err) {
     res.send(render('send.njk', { 
       result: {
         ok: false,
         status: 'Error',
-        error: JSON.stringify(response.body, null, 2),
+        error: JSON.stringify(err, null, 2),
       },
     }));
   }
