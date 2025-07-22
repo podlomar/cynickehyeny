@@ -8,7 +8,10 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
-<body>
+<body data-theme="dark">
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <span class="theme-toggle-icon">☀️</span>
+  </button>
   <section class="hero"></section>
 
   <!-- Header Content -->
@@ -132,6 +135,31 @@ body {
       </div>
     </article>
   </div>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = document.querySelector('.theme-toggle-icon');
+    const body = document.body;
+
+    // Check for saved theme preference or default to dark mode
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
 </body>
 
 </html>
