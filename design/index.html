@@ -9,9 +9,35 @@
 </head>
 
 <body data-theme="dark">
-  <button class="theme-toggle" aria-label="Toggle theme">
-    <span class="theme-toggle-icon">☀️</span>
-  </button>
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html">
+            <span class="logo-text">Cynické Hyeny</span>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link active">Články</a></li>
+            <li><a href="authors.html" class="nav-link">Autoři</a></li>
+            <li><a href="#about" class="nav-link">O nás</a></li>
+            <li><a href="#contact" class="nav-link">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-toggle-icon">☀️</span>
+          </button>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span class="hamburger"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <section class="hero"></section>
 
   <!-- Header Content -->
@@ -156,7 +182,8 @@ body {
 
       <div class="footer-bottom">
         <div class="footer-links">
-          <a href="#about">O mně</a>
+          <a href="index.html">Články</a>
+          <a href="authors.html">Autoři</a>
           <a href="#privacy">Ochrana soukromí</a>
           <a href="#contact">Kontakt</a>
         </div>
@@ -188,6 +215,29 @@ body {
     function updateThemeIcon(theme) {
       themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
     }
+
+    // Mobile menu toggle functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('mobile-open');
+    });
+
+    // Close mobile menu when clicking on a nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('mobile-open');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.main-header')) {
+        mainNav.classList.remove('mobile-open');
+      }
+    });
   </script>
 </body>
 
