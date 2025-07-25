@@ -1,18 +1,24 @@
-export const Header = () => {
+import { NavLink } from "../NavLink/index.js";
+
+interface Props {
+  activeLink?: string;
+}
+
+export const Header = ({ activeLink }: Props) => {
   return (
     <header className="main-header">
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <a href="home.html">
+            <a href="/">
               <span className="logo-text">Cynické Hyeny</span>
             </a>
           </div>
           <nav className="main-nav">
             <ul className="nav-list">
-              <li><a href="/" className="nav-link">Domů</a></li>
-              <li><a href="/articles" className="nav-link active">Články</a></li>
-              <li><a href="/about" className="nav-link">O nás</a></li>
+              <li><NavLink href="/" active={activeLink === '/'}>Domů</NavLink></li>
+              <li><NavLink href="/articles" active={activeLink === '/articles'}>Články</NavLink></li>
+              <li><NavLink href="/about" active={activeLink === '/about'}>O nás</NavLink></li>
             </ul>
           </nav>
           <div className="header-actions">

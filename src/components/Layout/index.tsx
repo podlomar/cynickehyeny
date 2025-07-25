@@ -2,10 +2,11 @@ import { Header } from '../Header/index.js';
 import { Footer } from '../Footer/index.js';
 
 interface Props {
+  link: string;
   children: any;
 }
 
-export const Layout = ({ children }: Props) => {
+export const Layout = ({ link, children }: Props) => {
   return (
     <html lang="cs">
       <head>
@@ -15,7 +16,7 @@ export const Layout = ({ children }: Props) => {
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body data-theme="dark">
-        <Header />
+        <Header activeLink={link} />
 
         <section className="hero"></section>
 
