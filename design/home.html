@@ -28,8 +28,12 @@
           </ul>
         </nav>
         <div class="header-actions">
-          <button class="theme-toggle" aria-label="Toggle theme">
-            <span class="theme-toggle-icon">☀️</span>
+          <button class="theme-toggle" aria-label="Změnit téma" data-mode="dark">
+            <div class="theme-toggle-content">
+              <span class="theme-toggle-icon">🌙</span>
+              <span class="theme-toggle-text">Tmavé</span>
+            </div>
+            <div class="theme-system-indicator"></div>
           </button>
           <button class="mobile-menu-toggle" aria-label="Toggle menu">
             <span class="hamburger"></span>
@@ -292,28 +296,77 @@
   </footer>
 
   <script>
-    // Theme toggle functionality
+    // Three-way theme toggle functionality
     const themeToggle = document.querySelector('.theme-toggle');
     const themeIcon = document.querySelector('.theme-toggle-icon');
+    const themeText = document.querySelector('.theme-toggle-text');
     const body = document.body;
 
-    // Check for saved theme preference or default to dark mode
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    body.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
+    // Theme options: light, dark, system
+    const themes = {
+      light: { icon: '☀️', text: 'Světlé', theme: 'light' },
+      dark: { icon: '🌙', text: 'Tmavé', theme: 'dark' },
+      system: { icon: '🔄', text: 'Auto', theme: getSystemTheme() }
+    };
 
+    // Get system theme preference
+    function getSystemTheme() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // Get saved theme preference or default to system
+    const savedMode = localStorage.getItem('themeMode') || 'system';
+    const savedTheme = savedMode === 'system' ? getSystemTheme() : savedMode;
+
+    // Initialize theme
+    body.setAttribute('data-theme', savedTheme);
+    themeToggle.setAttribute('data-mode', savedMode);
+    updateThemeToggle(savedMode);
+
+    // Theme toggle click handler
     themeToggle.addEventListener('click', () => {
-      const currentTheme = body.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const currentMode = themeToggle.getAttribute('data-mode');
+      let newMode;
+
+      // Cycle through: dark → light → system → dark
+      switch (currentMode) {
+        case 'dark':
+          newMode = 'light';
+          break;
+        case 'light':
+          newMode = 'system';
+          break;
+        case 'system':
+          newMode = 'dark';
+          break;
+        default:
+          newMode = 'dark';
+      }
+
+      const newTheme = newMode === 'system' ? getSystemTheme() : newMode;
 
       body.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeIcon(newTheme);
+      themeToggle.setAttribute('data-mode', newMode);
+      localStorage.setItem('themeMode', newMode);
+      updateThemeToggle(newMode);
     });
 
-    function updateThemeIcon(theme) {
-      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    // Update theme toggle appearance
+    function updateThemeToggle(mode) {
+      const config = themes[mode];
+      themeIcon.textContent = config.icon;
+      themeText.textContent = config.text;
     }
+
+    // Listen for system theme changes when in system mode
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      const currentMode = themeToggle.getAttribute('data-mode');
+      if (currentMode === 'system') {
+        const newTheme = e.matches ? 'dark' : 'light';
+        body.setAttribute('data-theme', newTheme);
+        themes.system.theme = newTheme;
+      }
+    });
 
     // Mobile menu toggle functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
