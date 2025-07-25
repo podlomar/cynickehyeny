@@ -1,4 +1,5 @@
 import { Header } from '../Header/index.js';
+import { Footer } from '../Footer/index.js';
 
 interface Props {
   children: any;
@@ -11,18 +12,18 @@ export const Layout = ({ children }: Props) => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Cynické Hyeny</title>
-        <link rel="stylesheet" href="/static/styles.css" />
+        <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body>
+      <body data-theme="dark">
         <Header />
+
+        <section className="hero"></section>
+
         <main className="main-content">
           {children}
         </main>
-        <footer className="main-footer">
-          <div className="container">
-            <p>&copy; 2023 Cynické Hyeny. All rights reserved.</p>
-          </div>
-        </footer>
+
+        <Footer />
       </body>
     </html>
   );

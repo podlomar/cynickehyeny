@@ -10,11 +10,9 @@ export const Header = () => {
           </div>
           <nav className="main-nav">
             <ul className="nav-list">
-              <li><a href="home.html" className="nav-link">Domů</a></li>
-              <li><a href="articles.html" className="nav-link active">Články</a></li>
-              <li><a href="authors.html" className="nav-link">Autoři</a></li>
-              <li><a href="#about" className="nav-link">O nás</a></li>
-              <li><a href="#contact" className="nav-link">Kontakt</a></li>
+              <li><a href="/" className="nav-link">Domů</a></li>
+              <li><a href="/articles" className="nav-link active">Články</a></li>
+              <li><a href="/about" className="nav-link">O nás</a></li>
             </ul>
           </nav>
           <div className="header-actions">

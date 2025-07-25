@@ -64,7 +64,7 @@
   --color-selection: rgba(255, 255, 255, 0.2);
   --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
-  --hero-background: url('banner-dark.jpg');
+  --hero-background: url('/img/banner-dark.jpg');
 }
 
 /* Light theme */
@@ -83,7 +83,7 @@
   --color-selection: rgba(0, 0, 0, 0.1);
   --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
-  --hero-background: url('banner-light.jpg');
+  --hero-background: url('/img/banner-light.jpg');
 }
 
 /* Reset and base styles */

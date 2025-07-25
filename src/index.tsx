@@ -5,7 +5,7 @@ import { Layout } from './components/Layout/index.js';
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.use('/static', express.static('static'))
+app.use('/', express.static('static'))
 
 app.get('/', async (req, res) => {
   const component = (
