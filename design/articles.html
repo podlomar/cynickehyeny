@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Články - Cynické Hyeny</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body data-theme="dark">
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="home.html">
+            <span class="logo-text">Cynické Hyeny</span>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="home.html" class="nav-link">Domů</a></li>
+            <li><a href="articles.html" class="nav-link active">Články</a></li>
+            <li><a href="authors.html" class="nav-link">Autoři</a></li>
+            <li><a href="#about" class="nav-link">O nás</a></li>
+            <li><a href="#contact" class="nav-link">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-toggle-icon">☀️</span>
+          </button>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span class="hamburger"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero"></section>
+
+  <!-- Articles Header -->
+  <section class="articles-header">
+    <div class="container">
+      <h1>Archiv článků</h1>
+      <p class="header-subtitle">Procházej všechny naše cynické postřehy o technologiích, designu a digitálním světě.
+        Najdeš zde 127 článků plných nepříjemných pravd.</p>
+    </div>
+  </section>
+
+  <!-- Search and Filters -->
+  <section class="articles-filters">
+    <div class="container">
+      <div class="filters-container">
+        <div class="search-box">
+          <input type="text" placeholder="Hledat v článcích..." class="search-input" id="searchInput">
+          <button class="search-btn">🔍</button>
+        </div>
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-category="all">Všechny</button>
+          <button class="filter-tab" data-category="technologie">Technologie</button>
+          <button class="filter-tab" data-category="design">Design</button>
+          <button class="filter-tab" data-category="marketing">Marketing</button>
+          <button class="filter-tab" data-category="business">Business</button>
+          <button class="filter-tab" data-category="ai">AI</button>
+          <button class="filter-tab" data-category="politika">Politika</button>
+        </div>
+        <div class="sort-options">
+          <select class="sort-select" id="sortSelect">
+            <option value="newest">Nejnovější</option>
+            <option value="oldest">Nejstarší</option>
+            <option value="popular">Nejčtenější</option>
+            <option value="title">Podle názvu</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="articles-archive">
+    <div class="container">
+      <div class="archive-meta">
+        <span id="resultsCount">Zobrazeno 18 z 127 článků</span>
+      </div>
+
+      <div class="articles-grid-archive">
+        <!-- Article 1 -->
+        <article class="article-card-archive" data-category="politika" data-date="2025-07-21" data-popularity="950">
+          <div class="article-image">
+            <img src="post.jpg" alt="Čína kecá už i do reinkarnace" />
+            <div class="article-category">Politika</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 21. července 2025</span>
+              <span>⏱️ 8 min</span>
+              <span>👁️ 950 čtení</span>
+            </div>
+            <h3><a href="index.html">Čína kecá už i do reinkarnace</a></h3>
+            <p>Tibet, v Česku oblíbenej kus světa. Dalajláma, v Česku velmi oblíbenej chlápek. U příležitosti
+              dalajlámovejch devadesátin se staly dvě věci...</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Jane Doe" class="author-mini">
+              <span>Jane Doe</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card-archive" data-category="design" data-date="2025-07-19" data-popularity="734">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="Proč většina UX designu je bullshit" />
+            <div class="article-category">Design</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 19. července 2025</span>
+              <span>⏱️ 6 min</span>
+              <span>👁️ 734 čtení</span>
+            </div>
+            <h3><a href="#">Proč většina UX designu je bullshit</a></h3>
+            <p>Každý druhý startup má "revolutionary UX", ale většina z nich nedokáže vytvořit ani pořádný formulář.
+              Podívejme se na to, co skutečně funguje...</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Jane Doe" class="author-mini">
+              <span>Jane Doe</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card-archive" data-category="technologie" data-date="2025-07-17" data-popularity="1203">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="JavaScript frameworky v roce 2025" />
+            <div class="article-category">Technologie</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 17. července 2025</span>
+              <span>⏱️ 12 min</span>
+              <span>👁️ 1203 čtení</span>
+            </div>
+            <h3><a href="#">JavaScript frameworky v roce 2025: Stále to samé s^*t</a></h3>
+            <p>Každý rok se objeví nový "game-changing" framework. Letos máme už 47 způsobů, jak napsat Todo aplikaci.
+              Ale opravdu potřebujeme další?</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Tomáš Novák" class="author-mini">
+              <span>Tomáš Novák</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="article-card-archive" data-category="marketing" data-date="2025-07-15" data-popularity="567">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="Growth hacking není hack" />
+            <div class="article-category">Marketing</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 15. července 2025</span>
+              <span>⏱️ 9 min</span>
+              <span>👁️ 567 čtení</span>
+            </div>
+            <h3><a href="#">Growth hacking není hack, je to jen dobrý marketing</a></h3>
+            <p>Termín "growth hacking" zní sexy, ale ve skutečnosti jde jen o marketing s pořádným měřením. Proč si
+              komplikujeme život novými buzzwordy?</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Petra Svobodová" class="author-mini">
+              <span>Petra Svobodová</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="article-card-archive" data-category="business" data-date="2025-07-12" data-popularity="892">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="Product management realita" />
+            <div class="article-category">Product</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 12. července 2025</span>
+              <span>⏱️ 7 min</span>
+              <span>👁️ 892 čtení</span>
+            </div>
+            <h3><a href="#">Product management: Mezi vizí a realitou</a></h3>
+            <p>Všichni chtějí být jako Steve Jobs, ale většina product managerů řeší hlavně to, proč nefunguje CI/CD
+              pipeline a kdy konečně dodáme ten feature...</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Martin Dvořák" class="author-mini">
+              <span>Martin Dvořák</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="article-card-archive" data-category="business" data-date="2025-07-10" data-popularity="675">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="Startup kultura" />
+            <div class="article-category">Business</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 10. července 2025</span>
+              <span>⏱️ 11 min</span>
+              <span>👁️ 675 čtení</span>
+            </div>
+            <h3><a href="#">Startup kultura: Foosball stoly nevyřeší vyhořelé zaměstnance</a></h3>
+            <p>Ping-pong, neomezené dovolené a "work hard, play hard" mentalita. Proč startup kultura často skončí jako
+              toxické prostředí s hezkým marketingem?</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Tomáš Novák" class="author-mini">
+              <span>Tomáš Novák</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 7 -->
+        <article class="article-card-archive" data-category="ai" data-date="2025-07-08" data-popularity="1456">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="AI hype vlak" />
+            <div class="article-category">AI</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 8. července 2025</span>
+              <span>⏱️ 10 min</span>
+              <span>👁️ 1456 čtení</span>
+            </div>
+            <h3><a href="#">AI všude: Kdy skončí tento hype vlak?</a></h3>
+            <p>Každá aplikace teď má AI. Dokonce i kalkulačka má "AI-powered calculations". Kdy se vrátíme k tomu, že
+              technologie má řešit skutečné problémy?</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Martin Dvořák" class="author-mini">
+              <span>Martin Dvořák</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 8 -->
+        <article class="article-card-archive" data-category="design" data-date="2025-07-05" data-popularity="823">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="Dark mode marketing" />
+            <div class="article-category">Design</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 5. července 2025</span>
+              <span>⏱️ 5 min</span>
+              <span>👁️ 823 čtení</span>
+            </div>
+            <h3><a href="#">Dark mode: Když se funkcionalita stane marketingovým tahem</a></h3>
+            <p>Tmavý režim je všude. Je to opravdu o pohodlí uživatelů, nebo jen další způsob, jak se tvářit moderně a
+              inovativně?</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Jane Doe" class="author-mini">
+              <span>Jane Doe</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 9 -->
+        <article class="article-card-archive" data-category="technologie" data-date="2025-07-03" data-popularity="1021">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="Blockchain hype" />
+            <div class="article-category">Technologie</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 3. července 2025</span>
+              <span>⏱️ 13 min</span>
+              <span>👁️ 1021 čtení</span>
+            </div>
+            <h3><a href="#">Blockchain: Od revoluce k buzzwordu za 10 let</a></h3>
+            <p>Pamatujete si, kdy blockchain měl změnit svět? Dnes se používá hlavně na to, aby se firmy tvářily
+              inovativně v prezentacích pro investory.</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Tomáš Novák" class="author-mini">
+              <span>Tomáš Novák</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 10 -->
+        <article class="article-card-archive" data-category="marketing" data-date="2025-06-30" data-popularity="654">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="Influencer marketing" />
+            <div class="article-category">Marketing</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 30. června 2025</span>
+              <span>⏱️ 8 min</span>
+              <span>👁️ 654 čtení</span>
+            </div>
+            <h3><a href="#">Influencer marketing: Když se reklama tváří jako autentický obsah</a></h3>
+            <p>Mikro-influenceři, makro-influenceři, nano-influenceři. Kolik kategorií ještě vymyslíme, než přiznáme, že
+              jde jen o placenou reklamu?</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Petra Svobodová" class="author-mini">
+              <span>Petra Svobodová</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 11 -->
+        <article class="article-card-archive" data-category="design" data-date="2025-06-28" data-popularity="789">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="Minimalistický design" />
+            <div class="article-category">Design</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 28. června 2025</span>
+              <span>⏱️ 7 min</span>
+              <span>👁️ 789 čtení</span>
+            </div>
+            <h3><a href="#">Minimalistický design: Když se lenost maskuje jako filosofie</a></h3>
+            <p>Bílé pozadí, sans-serif font, hodně prázdného místa. Voilà, máte minimalistický design. Ale co když je to
+              jen výmluva pro nedostatek nápadů?</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Jane Doe" class="author-mini">
+              <span>Jane Doe</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 12 -->
+        <article class="article-card-archive" data-category="ai" data-date="2025-06-25" data-popularity="1234">
+          <div class="article-image">
+            <img src="https://via.placeholder.com/300x200" alt="ChatGPT productivity" />
+            <div class="article-category">AI</div>
+          </div>
+          <div class="article-content">
+            <div class="article-meta-small">
+              <span>📅 25. června 2025</span>
+              <span>⏱️ 9 min</span>
+              <span>👁️ 1234 čtení</span>
+            </div>
+            <h3><a href="#">ChatGPT vás neudělá produktivnějšími, jen líná</a></h3>
+            <p>AI má být nástroj, ne náhrada za přemýšlení. Ale zdá se, že většina lidí používá ChatGPT hlavně na to,
+              aby nemuseli myslet.</p>
+            <div class="article-author-small">
+              <img src="https://via.placeholder.com/24x24" alt="Martin Dvořák" class="author-mini">
+              <span>Martin Dvořák</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-section">
+        <button class="load-more-btn">Načíst další články</button>
+        <p class="load-more-info">Zobrazeno 12 z 127 článků</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section newsletter-section">
+          <h3>📬 Zůstaň v obraze</h3>
+          <p>Přihlásit se k odběru článků a nezmeškej nejnovější obsah o designu, technologiích a dalších zajímavých
+            tématech.</p>
+          <form class="newsletter-form" action="#" method="post">
+            <div class="form-group">
+              <input type="email" placeholder="Tvůj email..." required class="email-input">
+              <button type="submit" class="subscribe-btn">Přihlásit se</button>
+            </div>
+          </form>
+          <p class="newsletter-note">Žádný spam, pouze kvalitní obsah. Odhlásit se můžeš kdykoli.</p>
+        </div>
+
+        <div class="footer-section support-section">
+          <h3>☕ Podpoř mou práci</h3>
+          <p>Pokud se ti líbí obsah, který vytvářím, můžeš mi koupit kávu a pomoci tak s dalším tvořením.</p>
+          <a href="https://www.buymeacoffee.com/cynickehyeny" target="_blank" rel="noopener" class="coffee-btn">
+            <span class="coffee-icon">☕</span>
+            Koupit mi kávu
+          </a>
+          <p class="support-note">Každá podpora je vážně oceněna! 🙏</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="home.html">Domů</a>
+          <a href="articles.html">Články</a>
+          <a href="authors.html">Autoři</a>
+          <a href="#privacy">Ochrana soukromí</a>
+          <a href="#contact">Kontakt</a>
+        </div>
+        <p class="copyright">© 2025 Cynické Hyeny. Všechna práva vyhrazena.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = document.querySelector('.theme-toggle-icon');
+    const body = document.body;
+
+    // Check for saved theme preference or default to dark mode
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Mobile menu toggle functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('mobile-open');
+    });
+
+    // Close mobile menu when clicking on a nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('mobile-open');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.main-header')) {
+        mainNav.classList.remove('mobile-open');
+      }
+    });
+
+    // Articles filtering and search functionality
+    const searchInput = document.getElementById('searchInput');
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const sortSelect = document.getElementById('sortSelect');
+    const articles = document.querySelectorAll('.article-card-archive');
+    const resultsCount = document.getElementById('resultsCount');
+
+    let currentFilter = 'all';
+    let currentSort = 'newest';
+
+    // Filter functionality
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentFilter = tab.getAttribute('data-category');
+        filterArticles();
+      });
+    });
+
+    // Sort functionality
+    sortSelect.addEventListener('change', () => {
+      currentSort = sortSelect.value;
+      filterArticles();
+    });
+
+    // Search functionality
+    searchInput.addEventListener('input', () => {
+      filterArticles();
+    });
+
+    function filterArticles() {
+      const searchTerm = searchInput.value.toLowerCase();
+      let visibleCount = 0;
+      const articlesArray = Array.from(articles);
+
+      // Filter and search
+      const filteredArticles = articlesArray.filter(article => {
+        const category = article.getAttribute('data-category');
+        const title = article.querySelector('h3').textContent.toLowerCase();
+        const content = article.querySelector('p').textContent.toLowerCase();
+
+        const matchesCategory = currentFilter === 'all' || category === currentFilter;
+        const matchesSearch = searchTerm === '' ||
+          title.includes(searchTerm) ||
+          content.includes(searchTerm);
+
+        return matchesCategory && matchesSearch;
+      });
+
+      // Sort articles
+      filteredArticles.sort((a, b) => {
+        switch (currentSort) {
+          case 'newest':
+            return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+          case 'oldest':
+            return new Date(a.getAttribute('data-date')) - new Date(b.getAttribute('data-date'));
+          case 'popular':
+            return parseInt(b.getAttribute('data-popularity')) - parseInt(a.getAttribute('data-popularity'));
+          case 'title':
+            return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+          default:
+            return 0;
+        }
+      });
+
+      // Hide all articles first
+      articles.forEach(article => {
+        article.style.display = 'none';
+      });
+
+      // Show filtered and sorted articles
+      filteredArticles.forEach((article, index) => {
+        article.style.display = 'block';
+        article.parentNode.appendChild(article); // Re-order in DOM
+        visibleCount++;
+      });
+
+      // Update results count
+      resultsCount.textContent = `Zobrazeno ${visibleCount} z 127 článků`;
+    }
+
+    // Load more functionality
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    loadMoreBtn.addEventListener('click', () => {
+      // Simulate loading more articles
+      alert('Načítání dalších článků... (toto je demo)');
+    });
+  </script>
+</body>
+
+</html>
