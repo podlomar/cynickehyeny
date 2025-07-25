@@ -12,8 +12,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "nano-jsx/esm"
+    "jsx": "react-jsx"
   },
   "include": [
     "src/**/*"
