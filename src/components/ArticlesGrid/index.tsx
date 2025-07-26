@@ -1,3 +1,4 @@
+import { ArticleCard } from "../ArticleCard/index.js";
 import { ArticlePreview } from "../../lib/content.js";
 
 interface Props {
@@ -15,24 +16,7 @@ export const ArticlesGrid = ({ articles }: Props) => {
 
         <div className="articles-grid">
           {articles.map((article, index) => (
-            <article className="article-card" key={index}>
-              <div className="article-image">
-                <img src={article.image} alt={article.title} />
-                <div className="article-category">{article.category}</div>
-              </div>
-              <div className="article-content">
-                <div className="article-meta-small">
-                  <span>📅 {article.date}</span>
-                  <span>⏱️ {article.readTime} min</span>
-                </div>
-                <h3><a href={article.link}>{article.title}</a></h3>
-                <p>{article.lead}</p>
-                <div className="article-author-small">
-                  <img src={article.authorAvatar} alt={article.author} className="author-mini" />
-                  <span>{article.author}</span>
-                </div>
-              </div>
-            </article>
+            <ArticleCard key={index} articlePreview={article} />
           ))}
         </div>
       </div>
