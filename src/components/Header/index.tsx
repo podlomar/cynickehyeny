@@ -1,4 +1,5 @@
-import { NavLink } from "../NavLink/index.js";
+import { NavLink } from "../NavLink";
+import styles from "./styles.module.css";
 
 interface Props {
   activeLink?: string;
@@ -6,31 +7,31 @@ interface Props {
 
 export const Header = ({ activeLink }: Props) => {
   return (
-    <header className="main-header">
-      <div className="container">
-        <div className="header-content">
-          <div className="logo">
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.headerContent}>
+          <div className={styles.logo}>
             <a href="/">
-              <span className="logo-text">Cynické Hyeny</span>
+              <span className={styles.logoText}>Cynické Hyeny</span>
             </a>
           </div>
-          <nav className="main-nav">
-            <ul className="nav-list">
+          <nav className={styles.mainNav}>
+            <ul className={styles.navList}>
               <li><NavLink href="/" active={activeLink === '/'}>Domů</NavLink></li>
               <li><NavLink href="/articles" active={activeLink === '/articles'}>Články</NavLink></li>
               <li><NavLink href="/about" active={activeLink === '/about'}>O nás</NavLink></li>
             </ul>
           </nav>
-          <div className="header-actions">
-            <button className="theme-toggle" aria-label="Změnit téma" data-mode="dark">
-              <div className="theme-toggle-content">
-                <span className="theme-toggle-icon">🌙</span>
-                <span className="theme-toggle-text">Tmavé</span>
+          <div className={styles.headerActions}>
+            <button className={styles.themeToggle} aria-label="Změnit téma" data-mode="dark">
+              <div className={styles.themeToggleContent}>
+                <span className={styles.themeToggleIcon}>🌙</span>
+                <span className={styles.themeToggleText}>Tmavé</span>
               </div>
-              <div className="theme-system-indicator"></div>
+              <div className={styles.themeSystemIndicator}></div>
             </button>
-            <button className="mobile-menu-toggle" aria-label="Toggle menu">
-              <span className="hamburger"></span>
+            <button className={styles.mobileMenuToggle} aria-label="Toggle menu">
+              <span className={styles.hamburger}></span>
             </button>
           </div>
         </div>

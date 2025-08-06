@@ -1,4 +1,4 @@
-import { ArticlePreview } from "../../lib/content.js";
+import { ArticlePreview } from "../../lib/content";
 
 interface Props {
   articlePreview: ArticlePreview;

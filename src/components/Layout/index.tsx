@@ -1,5 +1,5 @@
-import { Header } from '../Header/index.js';
-import { Footer } from '../Footer/index.js';
+import { Header } from '../Header';
+import { Footer } from '../Footer';
 
 interface Props {
   link: string;
@@ -14,6 +14,7 @@ export const Layout = ({ link, children }: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Cynické Hyeny</title>
         <link rel="stylesheet" href="/styles.css" />
+        <link rel="stylesheet" href="/server.css" />
       </head>
       <body data-theme="dark">
         <Header activeLink={link} />

@@ -1,5 +1,5 @@
-import { ArticleCard } from "../ArticleCard/index.js";
-import { ArticlePreview } from "../../lib/content.js";
+import { ArticleCard } from "../ArticleCard";
+import { ArticlePreview } from "../../lib/content";
 
 interface Props {
   articles: ArticlePreview[];

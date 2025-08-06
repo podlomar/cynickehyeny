@@ -1,8 +1,8 @@
 import { JSX } from 'react/jsx-runtime';
 import express from 'express';
 import { prerenderToNodeStream } from 'react-dom/static';
-import { HomePage } from './pages/HomePage/index.js';
-import { fetchFeaturedArticle, fetchLatestArticles } from './lib/content.js';
+import { HomePage } from './pages/HomePage';
+import { fetchFeaturedArticle, fetchLatestArticles } from './lib/content';
 
 const render = async (component: JSX.Element, res: express.Response) => {
   const { prelude } = await prerenderToNodeStream(component);

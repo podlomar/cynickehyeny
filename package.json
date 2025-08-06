@@ -1,12 +1,12 @@
 {
   "name": "cynickehyeny",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js --watch",
-    "dev": "tsc -w"
+    "dev": "gulp watch",
+    "build": "gulp build",
+    "start": "cd dist && node server.js --watch"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,9 @@
     "@types/node": "^20.10.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "esbuild": "^0.25.8",
+    "esbuild-css-modules-plugin": "^3.1.5",
+    "gulp": "^5.0.1",
     "typescript": "^5.3.0"
   }
 }

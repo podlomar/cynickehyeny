@@ -1,9 +1,9 @@
-import { Layout } from '../../components/Layout/index.js';
-import { HeroSection } from '../../components/HeroSection/index.js';
-import { FeaturedArticle } from '../../components/FeaturedArticle/index.js';
-import { ArticlesGrid } from '../../components/ArticlesGrid/index.js';
-import { NewsletterCta } from '../../components/NewsletterCta/index.js';
-import { ArticlePreview } from '../../lib/content.js';
+import { Layout } from '../../components/Layout';
+import { HeroSection } from '../../components/HeroSection';
+import { FeaturedArticle } from '../../components/FeaturedArticle';
+import { ArticlesGrid } from '../../components/ArticlesGrid';
+import { NewsletterCta } from '../../components/NewsletterCta';
+import { ArticlePreview } from '../../lib/content';
 
 interface Props {
   featuredArticle: ArticlePreview;
