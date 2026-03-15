@@ -1,4 +1,4 @@
-import React from 'react';
+import { type JSX } from 'react';
 import { useRouter } from 'next/router';
 import { GetServerSidePropsResult } from 'next';
 import MessagePage from '../../components/MessagePage';

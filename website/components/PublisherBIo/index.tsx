@@ -1,4 +1,4 @@
-import React from 'react';
+import { type JSX } from 'react';
 import { Publisher } from '../../api-client';
 import Avatar from '../Avatar';
 import styles from './styles.module.scss';

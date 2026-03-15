@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
-import { fetchOnePost, Post } from '../../../api-client';
+import { fetchOnePost, type Post } from '../../../api-client';
 import Link from 'next/link';
 import Head from 'next/head';
 import PostDetail from '../../../components/PostDetail';

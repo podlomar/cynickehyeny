@@ -1,4 +1,4 @@
-import React from 'react';
+import { type JSX } from 'react';
 import { Author } from '../../api-client';
 import { PostAuthor } from '../PostAuthor';
 import { AvatarSize } from '../Avatar';

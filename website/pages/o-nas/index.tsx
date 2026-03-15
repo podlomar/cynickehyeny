@@ -1,4 +1,4 @@
-import React from 'react';
+import { type JSX } from 'react';
 import { GetServerSidePropsResult } from 'next';
 import { fetchPublishers,  Publisher } from '../../api-client';
 import PageLayout from '../../components/PageLayout';

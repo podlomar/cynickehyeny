@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { type JSX, useState, useMemo, useEffect } from 'react';
 import Cookies from 'universal-cookie';
 import Head from 'next/head';
 import { ColorScheme, ThemeContext, ThemeContextType } from '../lib/theme';
@@ -24,6 +24,7 @@ const MyApp = ({ Component, pageProps, storedColorScheme }: AppProps & OwnProps)
       const browserColorScheme = window.matchMedia("(prefers-color-scheme:dark)").matches
         ? 'dark'
         : 'light';
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       changeColorScheme(browserColorScheme);
     }
   }, [storedColorScheme]);

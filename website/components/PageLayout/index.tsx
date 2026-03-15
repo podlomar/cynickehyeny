@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { type JSX, useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';

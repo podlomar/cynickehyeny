@@ -1,4 +1,4 @@
-import React from 'react';
+import { type JSX } from 'react';
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Link from 'next/link';
 import { fetchPosts, Post, PostsSlice } from '../api-client';

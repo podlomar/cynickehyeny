@@ -1,4 +1,4 @@
-import React from 'react';
+import { type JSX } from 'react';
 import Link from 'next/link';
 import { Post } from '../../api-client';
 import PostDetail from '../PostDetail';

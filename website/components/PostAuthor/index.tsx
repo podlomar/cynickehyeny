@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import { type JSX } from 'react';
 import { Author } from '../../api-client';
 import { Avatar, AvatarSize } from '../Avatar';
 import styles from './styles.module.scss';

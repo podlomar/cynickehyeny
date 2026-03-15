@@ -1,3 +1,4 @@
+import { type JSX } from 'react';
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import { deleteSubscriber } from '../../api-client';
 import MessagePage from '../../components/MessagePage';

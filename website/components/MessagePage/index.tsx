@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type JSX } from 'react';
 import Link from 'next/link';
 import PageLayout from '../PageLayout';
 import styles from './styles.module.scss';
