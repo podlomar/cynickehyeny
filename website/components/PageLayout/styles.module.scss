@@ -9,6 +9,12 @@
 
   padding-top: 1rem;
   padding-bottom: 1rem;
+
+  border-bottom: 1px solid #ece7dc;
+
+  @include dark {
+    border-bottom: none;
+  }
 }
 
 .brand {
@@ -68,7 +74,7 @@
 
 .darkModeToggle {
   order: 3;
-  color: white;
+  color: $darkmode-text-color;
 
   :global(.react-toggle-track-check), :global(.react-toggle-track-x) {
     top: -5px;
@@ -77,15 +83,16 @@
 
 .main {
   margin-bottom: 4rem;
+  padding-top: 2rem;
 }
 
 .footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #eee;
+  background-color: #f0ece4;
 
   @include dark {
-    background-color: #111;
+    background-color: #0d1b2e;
   }
 }
 
@@ -94,25 +101,25 @@
   flex-direction: column;
   max-width: 20rem;
   margin: 0 auto 0 auto;
-  
+
 
   @include display-md {
     max-width: initial;
     flex-direction: row;
     gap: 2rem;
   }
-  
+
   &Prompt {
     flex: 1;
   }
 
   &Form {
     flex: 1;
-    
+
     @include display-md {
       padding-top: 2rem;
     }
-    
+
     label {
       display: block;
       margin-bottom: 1rem;
@@ -134,13 +141,13 @@
   }
 
   @include dark {
-    background-color: #333;  
-    border-color: #444;
+    background-color: #112240;
+    border-color: #1e3352;
     color: $darkmode-text-color;
   }
 
   :global(.page.dark) &:focus {
-    border-color: #777;
+    border-color: $palette-dark-accent;
   }
 }
 

@@ -2,7 +2,16 @@
 @import "../../mixins.scss";
 
 .postPreview {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ece7dc;
+  background-color: #faf7f2;
+
+  @include dark {
+    background-color: #0d2040;
+    border-color: #1a3055;
+  }
 
   &Head {
     display: flex;
@@ -26,7 +35,7 @@
   &Info {
     flex: 1;
     margin: 1rem 0 0 0;
-    
+
     @include display-md {
       margin: 0 0 0 1.5rem;
     }
@@ -45,7 +54,7 @@
       &:hover {
         text-decoration: underline;
       }
-      
+
       @include dark {
         color: $darkmode-text-color;
       }

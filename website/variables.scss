@@ -1,10 +1,13 @@
-$palette-1: #d3b17c;
+// Accents
+$palette-light-accent: #e8891c;   // warm orange from banner-light
+$palette-dark-accent:  #d3b17c;   // warm gold from banner-dark
 
-$lightmode-bg-color: #fff;
-$lightmode-text-color: #333;
-$link-color: $palette-1;
+$lightmode-bg-color:   #fff;
+$lightmode-text-color: #2a2a2a;
+$link-color:           $palette-light-accent;
 
-$darkmode-bg-color: #1a1a1a;
-$darkmode-text-color: #bbb;
+$darkmode-bg-color:    #060d18;   // deep navy from banner-dark sky
+$darkmode-text-color:  #c8b896;   // warm cream echoing hyena glow
+$darkmode-link-color:  $palette-dark-accent;
 
 $text-light-color: #888;

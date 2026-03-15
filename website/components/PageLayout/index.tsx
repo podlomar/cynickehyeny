@@ -78,6 +78,11 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
           </div>
         </div>
       </header>
+      <img
+        src={colorScheme === 'dark' ? '/banner-dark.jpg' : '/banner-light.jpg'}
+        className="banner"
+        alt=""
+      />
       <main className={clsx(styles.main, 'container')}>
         {children}
       </main>

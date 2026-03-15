@@ -22,7 +22,6 @@ export const getServerSideProps = async (context: GetServerSidePropsContext): Pr
 const HomePage = ({ postsSlice }: Props): JSX.Element => {
   return (
     <PageLayout activeNav="home">
-      <img alt="Banner" src="banner.svg" className="banner" />
       <h1>Cynické hyeny</h1>
       {postsSlice.posts.map((post) => <PostPreview key={post.id} post={post} />)}
 

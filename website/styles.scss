@@ -20,7 +20,7 @@ body {
   background-color: $lightmode-bg-color;
   color: $lightmode-text-color;
   transition: 1s;
-  
+
   &.dark {
     background-color: $darkmode-bg-color;
     color: $darkmode-text-color;
@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-  max-width: 660px;
+  max-width: 720px;
   padding: 0 1rem;
   margin: 0 auto;
 }
@@ -37,6 +37,9 @@ body {
 .banner {
   width: 100%;
   height: auto;
+  display: block;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 
 h1 {
@@ -59,21 +62,26 @@ a {
   }
 }
 
+.page.dark a {
+  color: $darkmode-link-color;
+}
+
 sup, sub {
   font-size: 0.7rem;
 }
 
 button {
   display: inline-block;
-  background-color: $palette-1;
+  background-color: $palette-light-accent;
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   color: white;
+  cursor: pointer;
   transition: 400ms;
 
   &:hover {
-    background-color: #bb893d;
+    background-color: #c5700d;
   }
 
   .page.dark & {
@@ -87,7 +95,7 @@ button {
 
 .btnLink {
   display: inline-block;
-  border: 2px solid #d3b17c;
+  border: 2px solid $palette-light-accent;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   transition: 400ms;
@@ -95,12 +103,16 @@ button {
 
   &:hover {
     text-decoration: none;
-    background-color: #dfdfdf;
-    color: black;
+    background-color: #f0ece4;
+    color: $lightmode-text-color;
+  }
+
+  .page.dark & {
+    border-color: $palette-dark-accent;
   }
 
   .page.dark &:hover {
-    background-color: #333;
-    color: white;
+    background-color: #1a2f4a;
+    color: $darkmode-text-color;
   }
 }
