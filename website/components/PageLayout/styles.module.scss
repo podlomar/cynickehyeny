@@ -4,7 +4,6 @@
 .header {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   align-items: center;
 
   padding-top: 1rem;
@@ -20,7 +19,6 @@
 .brand {
   display: flex;
   align-items: center;
-  order: 1;
   text-decoration: none;
 
   &:hover {
@@ -39,18 +37,13 @@
 }
 
 .navigation {
-  order: 4;
-  width: 100%;
-  text-align: right;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
 
-  @include display-md {
-    flex: 1;
-    width: auto;
-    order: 3;
-    margin-right: 2rem;
-  }
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
 
   a {
     margin: 0 0.5rem;
@@ -73,11 +66,17 @@
 }
 
 .darkModeToggle {
-  order: 3;
-  color: $darkmode-text-color;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0;
+  line-height: 0;
+  color: $text-light-color;
+  margin-left: 1rem;
 
-  :global(.react-toggle-track-check), :global(.react-toggle-track-x) {
-    top: -5px;
+  @include dark {
+    color: $darkmode-text-color;
   }
 }
 

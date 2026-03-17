@@ -1,14 +1,12 @@
-import React, { type JSX, useState, ChangeEvent } from 'react';
+import React, { type JSX, useState } from 'react';
 import axios from 'axios';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
 import isEmail from 'validator/lib/isEmail';
-import Toggle from 'react-toggle';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../../lib/theme';
-import "react-toggle/style.css";
 import BuyMeACoffee from '../BuyMeACoffee';
 import styles from './styles.module.scss';
 
@@ -27,11 +25,7 @@ interface Email {
 export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JSX.Element => {
   const { colorScheme, changeColorScheme } = useTheme();
   const router = useRouter();
-  const [ email, setEmail ] = useState<Email>({ value: '', valid: true });
-
-  const handleColorSchemeChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    changeColorScheme(e.target.checked ? 'dark' : 'light');
-  };
+  const [email, setEmail] = useState<Email>({ value: '', valid: true });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,7 +44,7 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
   }
 
   return (
-    <div className={clsx('page', colorScheme )}>
+    <div className={clsx('page', colorScheme)}>
       <Head>
         <title>{title === undefined ? 'Cynické hyeny' : `${title} | Cynické hyeny`}</title>
       </Head>
@@ -64,18 +58,16 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
           <nav className={styles.navigation}>
             <Link className={clsx(activeNav === 'home' ? styles.activeNav : null)} href="/">Články</Link>
             <Link className={clsx(activeNav === 'about' ? styles.activeNav : null)} href="/o-nas">O nás</Link>
+            <button
+              className={styles.darkModeToggle}
+              onClick={() => changeColorScheme(colorScheme === 'dark' ? 'light' : 'dark')}
+              aria-label="Toggle dark mode"
+            >
+              {colorScheme === 'dark' ? <FaSun /> : <FaMoon />}
+            </button>
           </nav>
 
-          <div className={styles.darkModeToggle}>
-            <Toggle
-              checked={colorScheme === 'dark'}
-              onChange={handleColorSchemeChange}
-              icons={{
-                checked: <FaSun />,
-                unchecked: <FaMoon />,
-              }}
-            />
-          </div>
+
         </div>
       </header>
       <img
@@ -96,7 +88,7 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
                   Přihlašte se k odběru našeho newsletteru, ve kterém vás budeme nepravidelně obšťastňovat shrnutím nejzajímavějších článků na našem webu.
                 </p>
               </div>
-              <form 
+              <form
                 className={styles.subscribeForm}
                 onSubmit={handleSubmit}
               >
@@ -115,7 +107,7 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
               </form>
             </div>
           )}
-  
+
           <div className={styles.donate}>
             <p>
               Líbí se vám naše články?
@@ -124,7 +116,7 @@ export const PageLayout = ({ title, activeNav, subscribe, children }: Props): JS
             </p>
             <BuyMeACoffee />
           </div>
-          
+
           <p className={styles.copyright}>
             © 2023 cynickehyeny.cz všechna práva vyhrazena
           </p>
